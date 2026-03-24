@@ -1,7 +1,6 @@
 ---
 import "../assets/app.css";
-import NavbarMain from "../components/Navbar/NavbarMain.astro";
-import NavbarLink from "../components/Navbar/NavbarLink.astro";
+import Navbar from "../components/Navbar/Navbar.astro";
 ---
 
 <!doctype html>
@@ -15,12 +14,7 @@ import NavbarLink from "../components/Navbar/NavbarLink.astro";
 		<title>Astro Basics</title>
 	</head>
 	<body>
-		<NavbarMain>
-			<NavbarLink></NavbarLink>
-			<NavbarLink></NavbarLink>
-			<NavbarLink></NavbarLink>
-			<NavbarLink></NavbarLink>
-		</NavbarMain>
+		<Navbar />
 		<slot />
 	</body>
 </html>
