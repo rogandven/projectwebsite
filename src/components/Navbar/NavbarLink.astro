@@ -1,0 +1,13 @@
+---
+interface Props {
+    name?: string;
+    destination?: string;
+}
+
+const { 
+    name = "Default", 
+    destination = "https://www.youtube.com/watch?v=dQw4w9WgXcQ" 
+} = Astro.props;
+---
+
+<li><a href={destination}>{name}</a></li>
