@@ -1,0 +1,31 @@
+---
+interface Props {
+    imageUrl?: string;
+    title?: string;
+    description?: string;
+    buttonText?: string;
+    buttonUrl?: string;
+}
+
+const { 
+    imageUrl = "https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp",
+    title = "Hello there",
+    description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    buttonText = "Get Started",
+    buttonUrl = "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+} = Astro.props;
+---
+
+<div
+  class="hero min-h-screen"
+  style={"background-image: url(" + imageUrl + ");"}
+>
+  <div class="hero-overlay"></div>
+  <div class="hero-content text-neutral-content text-center">
+    <div class="max-w-md">
+      <h1 class="mb-5 text-5xl font-bold">{title}</h1>
+      <p class="mb-5">{description}</p>
+      <a href={buttonUrl}><button class="btn btn-primary">{buttonText}</button></a>
+    </div>
+  </div>
+</div>
