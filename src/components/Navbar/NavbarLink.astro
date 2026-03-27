@@ -1,13 +1,18 @@
 ---
+import { Icon } from 'astro-icon/components';
+import { DEFAULT_BUTTON_LABEL, DEFAULT_ICON_NAME, DEFAULT_LINK } from '../../constants/DefaultValueConstants.ts';
+
 interface Props {
+    iconName?: string;
     name?: string;
     destination?: string;
 }
 
 const { 
-    name = "Default", 
-    destination = "https://www.youtube.com/watch?v=dQw4w9WgXcQ" 
+    iconName = DEFAULT_ICON_NAME,
+    name = DEFAULT_BUTTON_LABEL, 
+    destination = DEFAULT_LINK
 } = Astro.props;
 ---
 
-<li><a href={destination}>{name}</a></li>
+<li><a href={destination}><Icon name={iconName}/>{name}</a></li>

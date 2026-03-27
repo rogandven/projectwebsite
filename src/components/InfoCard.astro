@@ -1,18 +1,23 @@
 ---
+import { DEFAULT_TITLE, DEFAULT_DESCRIPTION, DEFAULT_ICON_NAME } from '../constants/DefaultValueConstants.ts';
+import { Icon } from 'astro-icon/components';
+
 interface Props {
+    iconName?: string;
     cardTitle?: string;
     description?: string;
 }
 
 const { 
-    cardTitle = "Card Title",
-    description = "A card component has a figure, a body part, and inside body there are title and actions parts.",
+    iconName = DEFAULT_ICON_NAME,
+    cardTitle = DEFAULT_TITLE,
+    description = DEFAULT_DESCRIPTION,
 } = Astro.props;
 ---
 
 <div class="card card-border bg-base-100 w-96">
     <div class="card-body">
-        <h2 class="card-title"><slot />{cardTitle}</h2>
+        <h2 class="card-title"><Icon name={iconName} />{cardTitle}</h2>
         <p>{description}</p>
     </div>
 </div>
