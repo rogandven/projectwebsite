@@ -1,11 +1,12 @@
 ---
-import { DEFAULT_APPLICATION_NAME } from "../../constants/DefaultValueConstants.ts";
-import { NAVBAR_LEFTSIDE_CLASS, NAVBAR_LIST_EXTRACLASSES, NAVBAR_RIGHTSIDE_CLASS } from "../../constants/TailwindConstants.ts";
+import { DEFAULT_APPLICATION_NAME, DEFAULT_LINK } from "../../constants/DefaultValueConstants.ts";
+import { DEFAULT_HALFSIDEMARGIN, NAVBAR_LEFTSIDE_CLASS, NAVBAR_LIST_EXTRACLASSES, NAVBAR_RIGHTSIDE_CLASS } from "../../constants/TailwindConstants.ts";
+import { HEADER_FOOTER_CLASS } from "../../constants/TailwindConstants.ts";
 ---
 
-<div class="navbar bg-base-100 shadow-sm">
+<div class={"navbar shadow-sm " + HEADER_FOOTER_CLASS}>
     <div class={NAVBAR_LEFTSIDE_CLASS}>
-        <a class="btn btn-ghost text-xl">{DEFAULT_APPLICATION_NAME}</a>
+        <a class={"btn btn-ghost text-xl " + DEFAULT_HALFSIDEMARGIN} href={DEFAULT_LINK}>{DEFAULT_APPLICATION_NAME}</a>
     </div>
     <div class={NAVBAR_RIGHTSIDE_CLASS}>
         <ul class={"menu menu-horizontal px-1 " + NAVBAR_LIST_EXTRACLASSES}>

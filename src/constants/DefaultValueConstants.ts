@@ -1,4 +1,5 @@
 export const DEFAULT_APPLICATION_NAME : string = "daisyUI";
+export const DEFAULT_SLOGAN : string = "Providing reliable tech since 1992";
 export const DEFAULT_LINK : string = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
 export const DEFAULT_TITLE : string = "Hello there";
 export const DEFAULT_DESCRIPTION : string = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
