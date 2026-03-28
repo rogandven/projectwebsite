@@ -1,8 +1,9 @@
 ---
+import { DEFAULT_BOTTOMMARGIN, DEFAULT_TOPMARGIN } from "../../constants/TailwindConstants.ts";
 import InfoCard from "./InfoCard.astro";
 ---
 
-<div class="flex flex-auto">
+<div class={"flex flex-wrap justify-center content-center" + DEFAULT_TOPMARGIN + " " + DEFAULT_BOTTOMMARGIN + " w-full"}>
     <InfoCard></InfoCard>
     <InfoCard></InfoCard>
     <InfoCard></InfoCard>
