@@ -1,7 +1,17 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { getPosts, getPostInfo } from '../../utils/GeneralUtils.ts';
+
+const posts = getPosts();
+let currentPost = null;
 ---
 
 <Layout title="Blog">
-    <h1>AAAAAAAAAAAAAAAAAAAAAAAAAA</h1>
+    {posts.map((post: any) => {
+        currentPost = getPostInfo(post);
+        return (
+            <code>{JSON.stringify(currentPost)}</code>
+            <a href={post?.url}><p>{post?.url}</p></a>
+        )
+    })}
 </Layout>
