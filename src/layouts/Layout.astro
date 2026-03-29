@@ -3,6 +3,7 @@ import "../assets/app.css";
 import Navbar from "../components/Navbar/Navbar.astro";
 import Footer from '../components/Footer/Footer.astro';
 import { DEFAULT_APPLICATION_NAME } from "../constants/DefaultValueConstants.ts";
+import { titleGenerator } from "../utils/GeneralUtils.ts";
 
 interface Props {
 	title?: string
@@ -22,7 +23,7 @@ const {
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		<title>{titleGenerator(title)}</title>
 	</head>
 	<body>
 		<Navbar />

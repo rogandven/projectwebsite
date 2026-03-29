@@ -1,30 +1,14 @@
 ---
-import { Icon } from "astro-icon/components";
-import { DEFAULT_APPLICATION_NAME, DEFAULT_ICON_NAME, DEFAULT_LINK } from "../../constants/DefaultValueConstants.ts";
-import { DEFAULT_HALFSIDEMARGIN, NAVBAR_LEFTSIDE_CLASS, NAVBAR_LIST_EXTRACLASSES, NAVBAR_RIGHTSIDE_CLASS } from "../../constants/TailwindConstants.ts";
+import { NAVBAR_LIST_EXTRACLASSES, NAVBAR_RIGHTSIDE_CLASS } from "../../constants/TailwindConstants.ts";
 import { HEADER_FOOTER_CLASS } from "../../constants/TailwindConstants.ts";
+import NavbarLogo from "./NavbarLogo.astro";
 ---
 
 <div class={"navbar shadow-sm " + HEADER_FOOTER_CLASS}>
-    <div class={NAVBAR_LEFTSIDE_CLASS}>
-        <a class={"btn btn-ghost text-xl " + DEFAULT_HALFSIDEMARGIN} href={DEFAULT_LINK}>
-            <Icon name={DEFAULT_ICON_NAME} />
-            {DEFAULT_APPLICATION_NAME}
-        </a>
-    </div>
+    <NavbarLogo />
     <div class={NAVBAR_RIGHTSIDE_CLASS}>
         <ul class={"menu menu-horizontal px-1 " + NAVBAR_LIST_EXTRACLASSES}>
             <slot />
         </ul>    
     </div>
 </div>
-
-<!-- <li>
-    <details>
-        <summary>Parent</summary>
-        <ul class="bg-base-100 rounded-t-none p-2">
-            <li><a>Link 1</a></li>
-            <li><a>Link 2</a></li>
-        </ul>
-    </details>
-</li> -->
