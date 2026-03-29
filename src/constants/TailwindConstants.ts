@@ -14,3 +14,8 @@ export const NAVBAR_RIGHTSIDE_CLASS : string = IS_NAVBAR_DYNAMIC ? "flex flex-wr
 export const NAVBAR_LIST_EXTRACLASSES : string = IS_NAVBAR_DYNAMIC ? "flex flex-wrap justify-end" : "";
 
 export const HEADER_FOOTER_CLASS : string = CUSTOM_HEADER_COLOR ? "bg-neutral text-neutral-content" : "bg-base-100";
+
+export const MIDDLE_ALIGNER : string = "flex flex-row items-center align-middle";
+export const DARKER_TEXT : string = "text-xs mr-1 uppercase font-semibold opacity-60";
+
+export const MAX_PREVIEW_LENGTH : number = 40;

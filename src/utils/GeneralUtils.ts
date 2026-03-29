@@ -1,4 +1,5 @@
 import { DEFAULT_APPLICATION_NAME, DEFAULT_LINK, DEFAULT_POST_AUTHOR, DEFAULT_POST_DATE, DEFAULT_POST_DESCRIPTION, DEFAULT_POST_IMAGE, DEFAULT_POST_IMAGE_ALT, DEFAULT_POST_TITLE } from "../constants/DefaultValueConstants.ts"
+import { MAX_PREVIEW_LENGTH } from "../constants/TailwindConstants.ts";
 
 export const titleGenerator = (title: string) => {
     return String(title + " | " + DEFAULT_APPLICATION_NAME);
@@ -39,4 +40,11 @@ export const getPostInfo = (post: any) => {
     returnValue.url = String(post?.url || post?.frontmatter?.url || returnValue.url);
 
     return returnValue;
+}
+
+export const descriptionGenerator = (description: string) : string => {
+    if (description.length < MAX_PREVIEW_LENGTH) {
+        return String(description);
+    }
+    return String(description.substring(0, MAX_PREVIEW_LENGTH) + "...");
 }

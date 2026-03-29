@@ -1,12 +1,14 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getPosts, getPostInfo } from '../../utils/GeneralUtils.ts';
+import PostContainer from '../../components/Blog/PostContainer/PostContainer.astro'
 
 const posts = getPosts();
 let currentPost = null;
 ---
 
 <Layout title="Blog">
+    <PostContainer />
     {posts.map((post: any) => {
         currentPost = getPostInfo(post);
         return (
