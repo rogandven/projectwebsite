@@ -7,13 +7,17 @@ const posts: PostInfo[] = getPosts();
 ---
 
 <Layout title="Blog">
-    <ul class="list">
-        {posts.map((post: PostInfo) => {
-            return (
-            <li class="list-row">
-                <Post post={post}></Post>      
-            </li>                
-            )
-        })}        
-    </ul>
+    <div class="w-max max-w-max min-w-max flex flex-col align-middle items-center self-center content-evenly">
+        <div class="w-3xl bg-base-200 rounded-xl card card-border mt-2 mb-2">
+            <ul class="list">
+                {posts.map((post: PostInfo) => {
+                    return (
+                    <li class="list-row">
+                        <Post post={post}></Post>      
+                    </li>                
+                    )
+                })}        
+            </ul>
+        </div>
+    </div>
 </Layout>
