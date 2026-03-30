@@ -46,7 +46,7 @@ export const getPostInfo = (post: any): PostInfo => {
 
 export const descriptionGenerator = (description: string) : string => {
     if (description.length < MAX_PREVIEW_LENGTH) {
-        return String(description);
+        return String(description).trim();
     }
     return String(description.substring(0, MAX_PREVIEW_LENGTH) + "...");
 }
