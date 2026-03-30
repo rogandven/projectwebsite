@@ -1,23 +1,31 @@
-
 ---
 import { Icon } from "astro-icon/components";
 import { DEFAULT_ICON_NAME } from "../../../constants/DefaultValueConstants.ts";
 import { MIDDLE_ALIGNER, DARKER_TEXT } from "../../../constants/TailwindConstants.ts";
 import { descriptionGenerator } from "../../../utils/GeneralUtils.ts";
+import PostInfo from "../../../classes/PostInfo.ts";
+
+interface Props {
+    post?: PostInfo,
+}
+
+const { 
+    post = new PostInfo(),
+} = Astro.props;
 ---
 
 <div>
-    <h2 class="text-2xl font-bold mb-2">POST TITLE</h2>
+    <h2 class="text-2xl font-bold mb-2">{post.title}</h2>
     <div class={MIDDLE_ALIGNER}>
-        <img class="size-10 rounded-full mr-2" src="https://img.daisyui.com/images/profile/demo/1@94.webp"/>
+        <img class="size-10 rounded-full mr-2" src={post.image} alt={post.imageAltText || post.author}/>
         <div>
-            <h3 class="text-base">POST AUTHOR</h3>
+            <h3 class="text-base">{post.author}</h3>
             <div class={MIDDLE_ALIGNER}>
                 <Icon class={DARKER_TEXT} name={DEFAULT_ICON_NAME} />
-                <h4 class={DARKER_TEXT}>AAAAAAAAAA</h4>
+                <h4 class={DARKER_TEXT}>{post.date}</h4>
             </div>
             <p></p>
         </div>
     </div>
-    <p class="mt-2">{descriptionGenerator("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")}</p>
+    <p class="mt-2">{descriptionGenerator(post.description)}</p>
 </div>
