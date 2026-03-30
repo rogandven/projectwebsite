@@ -6,9 +6,18 @@ export const titleGenerator = (title: string) => {
     return String(title + " | " + DEFAULT_APPLICATION_NAME);
 }
 
+/*
 export const getPosts = () : any[] => {
     return Object.values(import.meta.glob('../pages/blog/posts/*.md', { eager: true }));
 } 
+*/
+export const getPosts = () : PostInfo[] => {
+    const posts : any[] = Object.values(import.meta.glob('../pages/blog/posts/*.md', { eager: true }));
+    const parsedPosts : PostInfo[] = posts.map((post) => {
+        return getPostInfo(post);
+    });
+    return parsedPosts;
+}
 
 const isPost = (post: any) : boolean => {
     if (!post || typeof(post) !== "object" || Array.isArray(post) || !(post.frontmatter)) {
@@ -18,7 +27,7 @@ const isPost = (post: any) : boolean => {
 }
 
 export const getPostInfo = (post: any): PostInfo => {
-    const returnValue = new PostInfo();
+    const returnValue : PostInfo = new PostInfo();
 
     if (!isPost(post)) {
         return returnValue;
