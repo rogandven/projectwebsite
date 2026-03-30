@@ -3,21 +3,20 @@ import Layout from '../../layouts/Layout.astro';
 import { getPosts } from '../../utils/GeneralUtils.ts';
 import PostInfo from '../../classes/PostInfo.ts';
 import Post from '../../components/Blog/Post.astro';
+import BlogBase from '../../components/Blog/BlogBase.astro';
 const posts: PostInfo[] = getPosts();
 ---
 
 <Layout title="Blog">
-    <div class="w-max max-w-max min-w-max flex flex-col align-middle items-center self-center content-evenly">
-        <div class="w-3xl bg-base-200 rounded-xl card card-border ml-2 mr-2 mt-2 mb-2 max-w-screen">
-            <ul class="list">
-                {posts.map((post: PostInfo) => {
-                    return (
-                    <li class="list-row">
-                        <Post post={post}></Post>      
-                    </li>                
-                    )
-                })}        
-            </ul>
-        </div>
-    </div>
+    <BlogBase>
+        <ul class="list">
+            {posts.map((post: PostInfo) => {
+                return (
+                <li class="list-row">
+                    <Post post={post}></Post>      
+                </li>                
+                )
+            })}        
+        </ul>
+    </BlogBase>
 </Layout>
