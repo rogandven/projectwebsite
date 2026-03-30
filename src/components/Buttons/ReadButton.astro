@@ -1,0 +1,15 @@
+---
+import { BLOG_ICON_NAME, DEFAULT_LINK } from "../../constants/DefaultValueConstants.ts";
+import ButtonBase from "./ButtonBase.astro";
+
+const { 
+    buttonUrl = DEFAULT_LINK,
+} = Astro.props;
+---
+<ButtonBase 
+    iconName={BLOG_ICON_NAME} 
+    destination={buttonUrl}
+    text={"Leer"}
+    color={"primary"}
+    classes={"mt-2"}
+/>

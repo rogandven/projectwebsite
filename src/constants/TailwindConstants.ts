@@ -19,3 +19,6 @@ export const MIDDLE_ALIGNER : string = "flex flex-row items-center align-middle"
 export const DARKER_TEXT : string = "text-xs mr-1 uppercase font-semibold opacity-60";
 
 export const MAX_PREVIEW_LENGTH : number = 40;
+
+export const DEFAULT_BUTTON_COLOR = "btn-neutral";
+export const DEFAULT_BUTTON_COLOR_ARG = "neutral";

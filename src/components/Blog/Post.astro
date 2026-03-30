@@ -4,6 +4,7 @@ import { DEFAULT_ICON_NAME } from "../../constants/DefaultValueConstants.ts";
 import { descriptionGenerator } from "../../utils/GeneralUtils.ts";
 import PostInfo from "../../classes/PostInfo.ts";
 import PostData from "./PostData.astro";
+import ReadButton from "../Buttons/ReadButton.astro";
 
 interface Props {
     post?: PostInfo,
@@ -17,10 +18,5 @@ const {
 <div>
     <PostData post={post}/>
     <p class="mt-2">{descriptionGenerator(post.description)}</p>
-    <a href={post.URL}>
-        <button class="btn btn-primary mt-2">
-            <Icon name={DEFAULT_ICON_NAME} />
-            Leer
-        </button>
-    </a>
+    <ReadButton buttonUrl={post.URL}></ReadButton>
 </div>

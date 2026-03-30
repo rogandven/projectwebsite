@@ -8,7 +8,10 @@ export const DEFAULT_TITLE : string = "Hello there";
 export const DEFAULT_DESCRIPTION : string = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 export const DEFAULT_BUTTON_LABEL : string = "Get Started";
 export const DEFAULT_IMAGE_LINK : string = "https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp";
+
 export const DEFAULT_ICON_NAME : string = "mdi:block";
+export const BLOG_ICON_NAME : string = "mdi:book";
+export const RETURN_ICON_NAME : string = "mdi:arrow-back";
 
 export const DEFAULT_POST_TITLE : string = "Default Title";
 export const DEFAULT_POST_DATE : string = "1970-01-01";
