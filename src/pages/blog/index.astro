@@ -1,17 +1,19 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getPosts, getPostInfo } from '../../utils/GeneralUtils.ts';
-import PostContainer from '../../components/Blog/PostContainer/PostContainer.astro'
+import { getPosts } from '../../utils/GeneralUtils.ts';
 import PostInfo from '../../classes/PostInfo.ts';
+import Post from '../../components/Blog/PostContainer/Post.astro';
 const posts: PostInfo[] = getPosts();
 ---
 
 <Layout title="Blog">
-    <PostContainer />
-    {posts.map((post: PostInfo) => {
-        return (
-            <code>{JSON.stringify(post)}</code>
-            <a href={post.URL}><p>{post.URL}</p></a>
-        )
-    })}
+    <ul class="list">
+        {posts.map((post: PostInfo) => {
+            return (
+            <li class="list-row">
+                <Post post={post}></Post>      
+            </li>                
+            )
+        })}        
+    </ul>
 </Layout>
