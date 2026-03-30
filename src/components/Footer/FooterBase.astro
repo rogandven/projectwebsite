@@ -1,6 +1,6 @@
 ---
 import { HEADER_FOOTER_CLASS } from "../../constants/TailwindConstants.ts";
-import { DEFAULT_APPLICATION_NAME, DEFAULT_ICON_NAME, DEFAULT_SLOGAN } from "../../constants/DefaultValueConstants.ts";
+import { DEFAULT_APPLICATION_NAME, DEFAULT_ICON_NAME, CURRENT_YEAR } from "../../constants/DefaultValueConstants.ts";
 import FooterLink from "./FooterLink.astro";
 import { Icon } from "astro-icon/components";
 ---
@@ -11,7 +11,7 @@ import { Icon } from "astro-icon/components";
     <p>
       {DEFAULT_APPLICATION_NAME}
       <br />
-      {DEFAULT_SLOGAN}
+      Copyright &copy; <span id="copyright">{CURRENT_YEAR}</span>. Todos los derechos reservados.
     </p>
   </aside>
   <nav>
@@ -23,3 +23,11 @@ import { Icon } from "astro-icon/components";
     </div>
   </nav>
 </footer>
+
+<script>
+  import { getYear } from "../../utils/GeneralUtils.ts";
+
+  if (document && (typeof(document) === "object")) {
+    document.querySelector("#copyright")!.textContent = getYear(new Date())  
+  }
+</script>

@@ -33,7 +33,7 @@ const validateDate = (date: string): string => {
     if (isNaN(parsedDate)) {
         throw new SyntaxError(`Invalid date: ${date}`)
     }
-    if (parsedDate > TODAY) {
+    if (parsedDate > TODAY.getDate()) {
         throw new RangeError(`Attempting to post something in the future: ${date}`);
     }
     return parseDate(parsedDate);

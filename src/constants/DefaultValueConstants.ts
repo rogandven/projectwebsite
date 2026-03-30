@@ -1,4 +1,5 @@
 import { USE_CHILEAN_LOCALE, USE_LONG_DATE_FORM } from "./Options.ts";
+import { getYear } from "../utils/GeneralUtils.ts";
 
 export const DEFAULT_APPLICATION_NAME : string = "daisyUI";
 export const DEFAULT_SLOGAN : string = "Providing reliable tech since 1992";
@@ -33,4 +34,5 @@ export const DEFAULT_DATE_FORM : "full" | "short" = USE_LONG_DATE_FORM ? FULL_DA
 export const DEFAULT_LOCALE : string = USE_CHILEAN_LOCALE ? CHILEAN_LOCALE : USA_LOCALE;
 export const DEFAULT_TIMEZONE : string = USE_CHILEAN_LOCALE ? CHILEAN_TIMEZONE : STANDARD_TIMEZONE;
 
-export const TODAY : number = new Date().getTime();
+export const TODAY : Date = new Date();
+export const CURRENT_YEAR : string = getYear(TODAY);
