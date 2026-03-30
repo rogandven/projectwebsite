@@ -2,9 +2,9 @@
 import Layout from '../../layouts/Layout.astro';
 import { getPosts, getPostInfo } from '../../utils/GeneralUtils.ts';
 import PostContainer from '../../components/Blog/PostContainer/PostContainer.astro'
-
+import PostInfo from '../../classes/PostInfo.ts';
 const posts = getPosts();
-let currentPost = null;
+let currentPost: PostInfo = new PostInfo();
 ---
 
 <Layout title="Blog">
