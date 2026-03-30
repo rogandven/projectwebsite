@@ -1,4 +1,4 @@
-import { DEFAULT_APPLICATION_NAME, DEFAULT_LINK, DEFAULT_POST_AUTHOR, DEFAULT_POST_DATE, DEFAULT_POST_DESCRIPTION, DEFAULT_POST_IMAGE, DEFAULT_POST_IMAGE_ALT, DEFAULT_POST_TITLE } from "../constants/DefaultValueConstants.ts"
+import { DEFAULT_APPLICATION_NAME, DEFAULT_LINK, DEFAULT_LOCALE, DEFAULT_POST_AUTHOR, DEFAULT_POST_DATE, DEFAULT_POST_DESCRIPTION, DEFAULT_POST_IMAGE, DEFAULT_POST_IMAGE_ALT, DEFAULT_POST_TITLE } from "../constants/DefaultValueConstants.ts"
 import { MAX_PREVIEW_LENGTH } from "../constants/TailwindConstants.ts";
 
 export const titleGenerator = (title: string) => {
@@ -47,4 +47,8 @@ export const descriptionGenerator = (description: string) : string => {
         return String(description);
     }
     return String(description.substring(0, MAX_PREVIEW_LENGTH) + "...");
+}
+
+export const parseDate = (date: number): string => {
+    return new Date(date).toLocaleDateString(DEFAULT_LOCALE);
 }

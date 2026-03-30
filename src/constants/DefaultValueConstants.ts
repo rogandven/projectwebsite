@@ -14,3 +14,11 @@ export const DEFAULT_POST_AUTHOR : string = "Default Author";
 export const DEFAULT_POST_IMAGE : string = DEFAULT_IMAGE_LINK;
 export const DEFAULT_POST_IMAGE_ALT : string = "Default Image";
 export const DEFAULT_POST_DESCRIPTION : string = "Default Description";
+
+export const USE_CHILEAN_LOCALE : boolean = true;
+
+export const CHILEAN_LOCALE : string = "es-CL";
+export const USA_LOCALE : string = "en-US";
+export const DEFAULT_LOCALE : string = USE_CHILEAN_LOCALE ? CHILEAN_LOCALE : USA_LOCALE;
+
+export const TODAY : number = new Date().getTime();
