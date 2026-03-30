@@ -48,7 +48,7 @@ export const descriptionGenerator = (description: string) : string => {
     if (description.length < MAX_PREVIEW_LENGTH) {
         return String(description).trim();
     }
-    return String(description.substring(0, MAX_PREVIEW_LENGTH) + "...");
+    return String(description.substring(0, MAX_PREVIEW_LENGTH).trim() + "...");
 }
 
 export const parseDate = (date: number): string => {
