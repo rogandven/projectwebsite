@@ -3,15 +3,15 @@ import Layout from '../../layouts/Layout.astro';
 import { getPosts, getPostInfo } from '../../utils/GeneralUtils.ts';
 import PostContainer from '../../components/Blog/PostContainer/PostContainer.astro'
 import PostInfo from '../../classes/PostInfo.ts';
-const posts = getPosts();
+const posts: PostInfo[] = getPosts();
 ---
 
 <Layout title="Blog">
     <PostContainer />
-    {posts.map((post: any) => {
+    {posts.map((post: PostInfo) => {
         return (
             <code>{JSON.stringify(post)}</code>
-            <a href={post?.url}><p>{post?.url}</p></a>
+            <a href={post.URL}><p>{post.URL}</p></a>
         )
     })}
 </Layout>
