@@ -16,9 +16,17 @@ export const DEFAULT_POST_IMAGE_ALT : string = "Default Image";
 export const DEFAULT_POST_DESCRIPTION : string = "Default Description";
 
 export const USE_CHILEAN_LOCALE : boolean = true;
+export const USE_LONG_DATE_FORM : boolean = true;
 
 export const CHILEAN_LOCALE : string = "es-CL";
 export const USA_LOCALE : string = "en-US";
+export const CHILEAN_TIMEZONE : string = "America/Santiago";
+export const STANDARD_TIMEZONE : string = "UTC";
+
+export const DEFAULT_DATE_FORM : "full" | "short" = USE_LONG_DATE_FORM ? "full" : "short";
+
+
 export const DEFAULT_LOCALE : string = USE_CHILEAN_LOCALE ? CHILEAN_LOCALE : USA_LOCALE;
+export const DEFAULT_TIMEZONE : string = USE_CHILEAN_LOCALE ? CHILEAN_TIMEZONE : STANDARD_TIMEZONE;
 
 export const TODAY : number = new Date().getTime();
