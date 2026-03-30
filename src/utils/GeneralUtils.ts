@@ -1,5 +1,6 @@
 import PostInfo from "../classes/PostInfo.ts";
 import { DEFAULT_APPLICATION_NAME, DEFAULT_LOCALE, DEFAULT_TIMEZONE, DEFAULT_DATE_FORM } from "../constants/DefaultValueConstants.ts"
+import { INCLUDE_DAY, USE_LONG_DATE_FORM } from "../constants/Options.ts";
 import { MAX_PREVIEW_LENGTH } from "../constants/TailwindConstants.ts";
 
 export const titleGenerator = (title: string) => {
@@ -52,8 +53,13 @@ export const descriptionGenerator = (description: string) : string => {
 }
 
 export const parseDate = (date: number): string => {
-    return new Date(date).toLocaleDateString(DEFAULT_LOCALE, {
+    const dateString = new Date(date).toLocaleDateString(DEFAULT_LOCALE, {
         timeZone: DEFAULT_TIMEZONE,
         dateStyle: DEFAULT_DATE_FORM,
     });
+
+    if (USE_LONG_DATE_FORM && !INCLUDE_DAY) {
+        return dateString.split(",")[1].trim();
+    }
+    return dateString;
 }

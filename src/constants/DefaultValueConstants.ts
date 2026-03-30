@@ -1,3 +1,5 @@
+import { USE_CHILEAN_LOCALE, USE_LONG_DATE_FORM } from "./Options.ts";
+
 export const DEFAULT_APPLICATION_NAME : string = "daisyUI";
 export const DEFAULT_SLOGAN : string = "Providing reliable tech since 1992";
 export const DEFAULT_LINK : string = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
@@ -15,16 +17,15 @@ export const DEFAULT_POST_IMAGE : string = DEFAULT_IMAGE_LINK;
 export const DEFAULT_POST_IMAGE_ALT : string = "Default Image";
 export const DEFAULT_POST_DESCRIPTION : string = "Default Description";
 
-export const USE_CHILEAN_LOCALE : boolean = true;
-export const USE_LONG_DATE_FORM : boolean = true;
-
 export const CHILEAN_LOCALE : string = "es-CL";
 export const USA_LOCALE : string = "en-US";
 export const CHILEAN_TIMEZONE : string = "America/Santiago";
 export const STANDARD_TIMEZONE : string = "UTC";
 
-export const DEFAULT_DATE_FORM : "full" | "short" = USE_LONG_DATE_FORM ? "full" : "short";
+export const FULL_DATE_FORM : "full" = "full";
+export const SHORT_DATE_FORM : "short" = "short";
 
+export const DEFAULT_DATE_FORM : "full" | "short" = USE_LONG_DATE_FORM ? FULL_DATE_FORM : SHORT_DATE_FORM;
 
 export const DEFAULT_LOCALE : string = USE_CHILEAN_LOCALE ? CHILEAN_LOCALE : USA_LOCALE;
 export const DEFAULT_TIMEZONE : string = USE_CHILEAN_LOCALE ? CHILEAN_TIMEZONE : STANDARD_TIMEZONE;
