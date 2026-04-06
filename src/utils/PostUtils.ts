@@ -1,5 +1,4 @@
 import { parseDate } from "../utils/GeneralUtils.ts";
-import { TODAY } from "../constants/DefaultValueConstants.ts";
 
 // https://regex-snippets.com/unix-path
 export const RelativeURLRegex: RegExp = /^\/(?:[^\/ ]+\/)*[^\/ ]*$|^\.(?:\/[^\/ ]+)+\/?$|^\.\.\/(?:[^\/ ]+\/)*[^\/ ]*$/;
@@ -34,10 +33,8 @@ export const validateDate = (date: string): string => {
         throw new SyntaxError(`Invalid date: ${date}`)
     }
 
-    // console.log("PARSED DATE: " + parsedDate);
-    // console.log("TODAY: " + TODAY.getTime());
-
-    if (parsedDate > TODAY.getTime()) {
+    const now: number = Date.now();
+    if (parsedDate > now) {
         throw new RangeError(`Attempting to post something in the future: ${date}`);
     }
     return parseDate(parsedDate);
