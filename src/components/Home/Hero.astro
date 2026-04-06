@@ -1,0 +1,36 @@
+---
+import { DEFAULT_LINK, DEFAULT_TITLE, DEFAULT_DESCRIPTION, DEFAULT_BUTTON_LABEL, DEFAULT_IMAGE_LINK, DEFAULT_ICON_NAME } from '../../constants/DefaultValueConstants.ts';
+import { HERO_CLASS } from '../../constants/TailwindConstants.ts';
+import ButtonBase from '../Buttons/ButtonBase.astro';
+import GetStartedButton from '../Buttons/GetStartedButton.astro';
+
+interface Props {
+    imageUrl?: string;
+    title?: string;
+    description?: string;
+    buttonText?: string;
+    buttonUrl?: string;
+}
+
+const { 
+    imageUrl = DEFAULT_IMAGE_LINK,
+    title = DEFAULT_TITLE,
+    description = DEFAULT_DESCRIPTION,
+    buttonText = DEFAULT_BUTTON_LABEL,
+    buttonUrl = DEFAULT_LINK,
+} = Astro.props;
+---
+
+<div
+  class={"hero " + HERO_CLASS}
+  style={"background-image: url(" + imageUrl + ");"}
+>
+  <div class="hero-overlay"></div>
+  <div class="hero-content text-neutral-content text-center">
+    <div class="w-full">
+      <h1 class="mb-5 text-5xl font-bold">{title}</h1>
+      <p class="mb-5">{description}</p>
+      <GetStartedButton buttonText={buttonText} buttonUrl={buttonUrl}>
+    </div>
+  </div>
+</div>

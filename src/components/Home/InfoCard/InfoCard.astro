@@ -1,0 +1,24 @@
+---
+import { DEFAULT_TITLE, DEFAULT_DESCRIPTION, DEFAULT_ICON_NAME } from '../../../constants/DefaultValueConstants.ts';
+import { DEFAULT_MARGIN } from '../../../constants/TailwindConstants.ts';
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+    iconName?: string;
+    cardTitle?: string;
+    description?: string;
+}
+
+const { 
+    iconName = DEFAULT_ICON_NAME,
+    cardTitle = DEFAULT_TITLE,
+    description = DEFAULT_DESCRIPTION,
+} = Astro.props;
+---
+
+<div class={"card card-border bg-base-200 w-96 " + DEFAULT_MARGIN}>
+    <div class="card-body">
+        <h2 class="card-title"><Icon name={iconName} />{cardTitle}</h2>
+        <p>{description}</p>
+    </div>
+</div>

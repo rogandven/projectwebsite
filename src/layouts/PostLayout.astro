@@ -1,0 +1,39 @@
+---
+import BlogBase from "../components/Blog/BlogBase.astro";
+import PostData from "../components/Blog/PostData.astro";
+import GoBackButton from "../components/Buttons/GoBackButton.astro";
+import { getPostInfo } from "../utils/GeneralUtils";
+import Layout from "./Layout.astro";
+
+const { frontmatter } = Astro.props;
+---
+<Layout title={frontmatter.title}>
+    <BlogBase>
+        <ul class="list">
+            <li class="list-row">
+                <GoBackButton />
+            </li>
+            <li class="list-row">
+                <div>
+                    <PostData classes="mb-2" post={getPostInfo({frontmatter: frontmatter})} />
+                    <p class="mt-2">{frontmatter?.description}</p>
+                </div>
+            </li>
+            <li class="list-row">
+                <div class="
+                    prose
+                    prose-headings:m-0
+                    prose-headings:mb-2
+                    prose-headings:font-bold
+                    prose-p:m-0 
+                    prose-p:mb-2
+                ">
+                    <slot></slot>
+                </div>
+            </li>
+            <li class="list-row">
+                <GoBackButton />
+            </li>            
+        </ul>
+    </BlogBase>
+</Layout>

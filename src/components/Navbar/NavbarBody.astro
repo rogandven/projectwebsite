@@ -1,0 +1,14 @@
+---
+import { NAVBAR_LIST_EXTRACLASSES, NAVBAR_RIGHTSIDE_CLASS } from "../../constants/TailwindConstants.ts";
+import { HEADER_FOOTER_CLASS } from "../../constants/TailwindConstants.ts";
+import NavbarLogo from "./NavbarLogo.astro";
+---
+
+<div class={"navbar shadow-sm " + HEADER_FOOTER_CLASS}>
+    <NavbarLogo />
+    <div class={NAVBAR_RIGHTSIDE_CLASS}>
+        <ul class={"menu menu-horizontal px-1 " + NAVBAR_LIST_EXTRACLASSES}>
+            <slot />
+        </ul>    
+    </div>
+</div>

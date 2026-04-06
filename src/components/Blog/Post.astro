@@ -1,0 +1,20 @@
+---
+import { descriptionGenerator } from "../../utils/GeneralUtils.ts";
+import PostInfo from "../../classes/PostInfo.ts";
+import PostData from "./PostData.astro";
+import ReadButton from "../Buttons/ReadButton.astro";
+
+interface Props {
+    post?: PostInfo,
+}
+
+const { 
+    post = new PostInfo(),
+} = Astro.props;
+---
+
+<div>
+    <PostData post={post}/>
+    <p class="mt-2">{descriptionGenerator(post.description)}</p>
+    <ReadButton buttonUrl={post.URL}></ReadButton>
+</div>

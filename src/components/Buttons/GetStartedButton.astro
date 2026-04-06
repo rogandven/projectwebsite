@@ -1,0 +1,21 @@
+---
+import ButtonBase from '../Buttons/ButtonBase.astro';
+import { DEFAULT_LINK, DEFAULT_BUTTON_LABEL, DEFAULT_IMAGE_LINK, DEFAULT_ICON_NAME } from '../../constants/DefaultValueConstants.ts';
+
+interface Props {
+    buttonText?: string;
+    buttonUrl?: string;
+}
+
+const { 
+    buttonText = DEFAULT_BUTTON_LABEL,
+    buttonUrl = DEFAULT_LINK,
+} = Astro.props;
+---
+<ButtonBase 
+    iconName={DEFAULT_ICON_NAME} 
+    destination={buttonUrl}
+    text={buttonText}
+    color={"primary"}
+    classes={""}
+/>

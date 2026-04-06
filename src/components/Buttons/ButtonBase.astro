@@ -1,0 +1,28 @@
+---
+import { Icon } from "astro-icon/components";
+import { DEFAULT_ICON_NAME, DEFAULT_LINK, DEFAULT_BUTTON_LABEL } from "../../constants/DefaultValueConstants.ts";
+import { DEFAULT_BUTTON_COLOR_ARG } from "../../constants/TailwindConstants.ts";
+import { buttonColorParser } from "../../utils/TailwindUtils.ts";
+
+interface Props {
+    iconName?: string;
+    destination?: string;
+    color?: string;
+    text?: string;
+    classes?: string;
+}
+
+const { 
+    iconName = DEFAULT_ICON_NAME,
+    destination = DEFAULT_LINK,
+    color = DEFAULT_BUTTON_COLOR_ARG,
+    text = DEFAULT_BUTTON_LABEL,
+    classes = "",
+} = Astro.props;
+---
+<a href={destination}>
+    <button class={`btn ${buttonColorParser(color)} ${classes}`}>
+        <Icon name={iconName} />
+        {text}
+    </button>
+</a>
