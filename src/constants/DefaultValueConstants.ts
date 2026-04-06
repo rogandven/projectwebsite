@@ -5,9 +5,9 @@ export const DEFAULT_APPLICATION_NAME : string = "daisyUI";
 export const DEFAULT_SLOGAN : string = "Providing reliable tech since 1992";
 export const DEFAULT_LINK : string = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
 export const HOME_DIRECTORY : string = "/";
-export const DEFAULT_TITLE : string = "Hello there";
-export const DEFAULT_DESCRIPTION : string = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-export const DEFAULT_BUTTON_LABEL : string = "Get Started";
+export const DEFAULT_TITLE : string = "Bienvenido a nuestro blog de tecnologia";
+export const DEFAULT_DESCRIPTION : string = "Compartimos noticias, guias y recomendaciones de videojuegos y desarrollo web.";
+export const DEFAULT_BUTTON_LABEL : string = "Ver publicaciones";
 export const DEFAULT_IMAGE_LINK : string = "https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp";
 
 export const DEFAULT_ICON_NAME : string = "mdi:block";
