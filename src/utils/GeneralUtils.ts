@@ -8,11 +8,6 @@ export const titleGenerator = (title: string) => {
     return String(title + " | " + DEFAULT_APPLICATION_NAME);
 }
 
-/*
-export const getPosts = () : any[] => {
-    return Object.values(import.meta.glob('../pages/blog/posts/*.md', { eager: true }));
-} 
-*/
 export const getPosts = () : PostInfo[] => {
     const posts : any[] = Object.values(import.meta.glob('../pages/blog/posts/*.md', { eager: true }));
     const parsedPosts : PostInfo[] = posts.map((post) => {
@@ -63,10 +58,6 @@ export const parseDate = (date: number): string => {
         return dateString.split(",")[1].trim();
     }
     return dateString;
-}
-
-export const getYear = (date: Date): string => {
-    return date.getFullYear().toString();
 }
 
 export const isAstro = (astro: any): boolean => {

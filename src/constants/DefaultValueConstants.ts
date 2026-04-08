@@ -1,5 +1,5 @@
 import { USE_CHILEAN_LOCALE, USE_LONG_DATE_FORM } from "./Options.ts";
-import { getYear } from "../utils/GeneralUtils.ts";
+import { getYear } from "../utils/GetYear.ts";
 
 export const DEFAULT_APPLICATION_NAME : string = "daisyUI";
 export const DEFAULT_SLOGAN : string = "Providing reliable tech since 1992";
