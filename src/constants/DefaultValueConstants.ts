@@ -36,3 +36,5 @@ export const DEFAULT_TIMEZONE : string = USE_CHILEAN_LOCALE ? CHILEAN_TIMEZONE :
 
 export const TODAY : Date = new Date();
 export const CURRENT_YEAR : string = getYear(TODAY);
+
+export const DEFAULT_PARTIAL_URL : string = "/";
