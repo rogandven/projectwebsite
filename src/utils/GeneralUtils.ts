@@ -95,8 +95,11 @@ export const getCurrentPageURL = (astro: any): string => {
     if (!isAstro(astro)) {
         throw new TypeError(`Expected Astro, ${'"' + objectPrinter(astro) + '"'} given`);
     }
-    console.log(`CURRENT URL: ${String(astro.url || "/")}`);
-    return String(astro.url || "/");
+    let returnValue = String(astro.url || DEFAULT_PARTIAL_URL);
+    if (returnValue.endsWith("/")) {
+        returnValue = returnValue.slice(0, returnValue.length - 1);
+    }
+    return returnValue;
 }
 
 export const getGoBackURL = (astro: any, amount: number): string => {
@@ -104,11 +107,13 @@ export const getGoBackURL = (astro: any, amount: number): string => {
     amount = Math.abs(Number(amount));
     const parsedCurrentUrl: string[] = currentUrl.split("/");
     for (let i:number = 0; i < amount; i++) {
+        // console.log("pop!\n");
+        // console.log(parsedCurrentUrl);
         parsedCurrentUrl.pop();
         if (parsedCurrentUrl.length <= 0) {
             return DEFAULT_PARTIAL_URL;
         }
     }
-    console.log(`GO BACK URL: ${String(parsedCurrentUrl.join("/") || DEFAULT_PARTIAL_URL)}`);
+    // console.log(`\nGO BACK URL: ${String(parsedCurrentUrl.join("/") || DEFAULT_PARTIAL_URL)}\n`);
     return parsedCurrentUrl.join("/") || DEFAULT_PARTIAL_URL;
 }
