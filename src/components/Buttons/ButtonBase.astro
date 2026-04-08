@@ -11,6 +11,7 @@ interface Props {
     color?: string;
     text?: string;
     classes?: string;
+    isPostButton?: boolean;
 }
 
 const { 
@@ -19,9 +20,10 @@ const {
     color = DEFAULT_BUTTON_COLOR_ARG,
     text = DEFAULT_BUTTON_LABEL,
     classes = "",
+    isPostButton = false,
 } = Astro.props;
 ---
-<a href={getAbsoluteURL(Astro, destination)}>
+<a href={isPostButton ? destination : getAbsoluteURL(Astro, destination)}>
     <button class={`btn ${buttonColorParser(color)} ${classes}`}>
         <Icon name={iconName} />
         {text}
