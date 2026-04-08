@@ -1,3 +1,4 @@
+import { TODAY } from "../constants/DefaultValueConstants.ts";
 import { parseDate } from "../utils/GeneralUtils.ts";
 
 // https://regex-snippets.com/unix-path
@@ -32,9 +33,7 @@ export const validateDate = (date: string): string => {
     if (isNaN(parsedDate)) {
         throw new SyntaxError(`Invalid date: ${date}`)
     }
-
-    const now: number = Date.now();
-    if (parsedDate > now) {
+    if (parsedDate > TODAY.getTime()) {
         throw new RangeError(`Attempting to post something in the future: ${date}`);
     }
     return parseDate(parsedDate);
