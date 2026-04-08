@@ -127,8 +127,8 @@ export const getHomeURL = (astro: any): string => {
     return currentUrl.replaceAll(currentRoute, "");
 }
 
-export const getAbsoluteURL = (astro: any, path: string): string => {
-    if (path.startsWith("http")) {
+export const getAbsoluteURL = (astro: any, path: string, isPostURL: boolean = false): string => {
+    if (isPostURL || path.startsWith("http")) {
         return path;
     }
     return getHomeURL(astro) + path;
