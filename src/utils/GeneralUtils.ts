@@ -1,6 +1,6 @@
 import type { AstroComponentFactory } from "astro/runtime/server/index.js";
 import PostInfo from "../classes/PostInfo.ts";
-import { DEFAULT_APPLICATION_NAME, DEFAULT_LOCALE, DEFAULT_TIMEZONE, DEFAULT_DATE_FORM, TODAY, DEFAULT_PARTIAL_URL } from "../constants/DefaultValueConstants.ts"
+import { DEFAULT_APPLICATION_NAME, DEFAULT_LOCALE, DEFAULT_TIMEZONE, DEFAULT_DATE_FORM, TODAY, DEFAULT_PARTIAL_URL, HOME_DIRECTORY } from "../constants/DefaultValueConstants.ts"
 import { INCLUDE_DAY, USE_LONG_DATE_FORM } from "../constants/Options.ts";
 import { MAX_PREVIEW_LENGTH } from "../constants/TailwindConstants.ts";
 
@@ -70,7 +70,7 @@ export const getYear = (date: Date): string => {
 }
 
 export const isAstro = (astro: any): boolean => {
-    if (astro && typeof(astro) === "object" && !Array.isArray(astro) && astro?.url) {
+    if (astro && typeof(astro) === "object" && !Array.isArray(astro) && astro?.url && astro?.routePattern) {
         return true;
     }
     return false;
@@ -116,4 +116,13 @@ export const getGoBackURL = (astro: any, amount: number): string => {
     }
     // console.log(`\nGO BACK URL: ${String(parsedCurrentUrl.join("/") || DEFAULT_PARTIAL_URL)}\n`);
     return parsedCurrentUrl.join("/") || DEFAULT_PARTIAL_URL;
+}
+
+export const getHomeURL = (astro: any): string => {
+    const currentUrl: string = getCurrentPageURL(astro);
+    const currentRoute: string = String(astro?.routePattern || HOME_DIRECTORY);
+    if (currentRoute === HOME_DIRECTORY) {
+        return currentUrl;
+    }
+    return currentUrl.replaceAll(currentRoute, "");
 }

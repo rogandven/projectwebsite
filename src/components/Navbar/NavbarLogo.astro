@@ -2,7 +2,9 @@
 import { Icon } from "astro-icon/components";
 import { DEFAULT_APPLICATION_NAME, DEFAULT_ICON_NAME } from "../../constants/DefaultValueConstants.ts";
 import { DEFAULT_HALFSIDEMARGIN, NAVBAR_LEFTSIDE_CLASS } from "../../constants/TailwindConstants.ts";
-import { HOME_DIRECTORY } from "../../constants/DefaultValueConstants.ts";
+import { getHomeURL } from "../../utils/GeneralUtils.ts";
+
+const HOME_DIRECTORY = getHomeURL(Astro);
 ---
 
 <div class={NAVBAR_LEFTSIDE_CLASS}>
