@@ -26,8 +26,9 @@ import { Icon } from "astro-icon/components";
 
 <script>
   import { getYear } from "../../utils/GeneralUtils.ts";
+  const _getYear = getYear;
 
   if (document && (typeof(document) === "object")) {
-    document.querySelector("#copyright")!.textContent = getYear(new Date())  
+    document.querySelector("#copyright")!.textContent = _getYear(new Date())  
   }
 </script>
