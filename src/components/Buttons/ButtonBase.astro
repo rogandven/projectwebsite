@@ -3,6 +3,7 @@ import { Icon } from "astro-icon/components";
 import { DEFAULT_ICON_NAME, DEFAULT_LINK, DEFAULT_BUTTON_LABEL } from "../../constants/DefaultValueConstants.ts";
 import { DEFAULT_BUTTON_COLOR_ARG } from "../../constants/TailwindConstants.ts";
 import { buttonColorParser } from "../../utils/TailwindUtils.ts";
+import { getAbsoluteURL } from "../../utils/GeneralUtils.ts";
 
 interface Props {
     iconName?: string;
@@ -20,7 +21,7 @@ const {
     classes = "",
 } = Astro.props;
 ---
-<a href={destination}>
+<a href={getAbsoluteURL(Astro, destination)}>
     <button class={`btn ${buttonColorParser(color)} ${classes}`}>
         <Icon name={iconName} />
         {text}

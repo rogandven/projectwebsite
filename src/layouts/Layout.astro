@@ -3,7 +3,7 @@ import "../assets/app.css";
 import Navbar from "../components/Navbar/Navbar.astro";
 import Footer from '../components/Footer/Footer.astro';
 import { DEFAULT_APPLICATION_NAME } from "../constants/DefaultValueConstants.ts";
-import { titleGenerator } from "../utils/GeneralUtils.ts";
+import { getAbsoluteURL, titleGenerator } from "../utils/GeneralUtils.ts";
 
 interface Props {
 	title?: string
@@ -20,8 +20,8 @@ const {
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/svg+xml" href={getAbsoluteURL(Astro, "/favicon.svg")} />
+		<link rel="icon" href={getAbsoluteURL(Astro, "/favicon.ico")} />
 		<meta name="generator" content={Astro.generator} />
 		<title>{titleGenerator(title)}</title>
 	</head>

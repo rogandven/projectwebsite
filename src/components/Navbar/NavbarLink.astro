@@ -2,6 +2,7 @@
 import { Icon } from 'astro-icon/components';
 import { DEFAULT_BUTTON_LABEL, DEFAULT_ICON_NAME, DEFAULT_LINK } from '../../constants/DefaultValueConstants.ts';
 import { DEFAULT_SIDEMARGIN } from '../../constants/TailwindConstants.ts';
+import { getAbsoluteURL } from '../../utils/GeneralUtils.ts';
 
 interface Props {
     iconName?: string;
@@ -12,8 +13,8 @@ interface Props {
 const { 
     iconName = DEFAULT_ICON_NAME,
     name = DEFAULT_BUTTON_LABEL, 
-    destination = DEFAULT_LINK
+    destination = DEFAULT_LINK, 
 } = Astro.props;
 ---
 
-<li class={DEFAULT_SIDEMARGIN}><a href={destination}><Icon name={iconName}/>{name}</a></li>
+<li class={DEFAULT_SIDEMARGIN}><a href={getAbsoluteURL(Astro, destination)}><Icon name={iconName}/>{name}</a></li>
