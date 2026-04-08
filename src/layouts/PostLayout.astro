@@ -1,17 +1,19 @@
 ---
+import { AstroDevToolbar } from "astro/runtime/client/dev-toolbar/toolbar.js";
 import BlogBase from "../components/Blog/BlogBase.astro";
 import PostData from "../components/Blog/PostData.astro";
 import GoBackButton from "../components/Buttons/GoBackButton.astro";
-import { getPostInfo } from "../utils/GeneralUtils";
+import { getGoBackURL, getPostInfo } from "../utils/GeneralUtils";
 import Layout from "./Layout.astro";
 
 const { frontmatter } = Astro.props;
+const goBackURL: string = getGoBackURL(Astro, 2);
 ---
 <Layout title={frontmatter.title}>
     <BlogBase>
         <ul class="list">
             <li class="list-row">
-                <GoBackButton />
+                <GoBackButton buttonUrl={goBackURL} />
             </li>
             <li class="list-row">
                 <div>
@@ -32,7 +34,7 @@ const { frontmatter } = Astro.props;
                 </div>
             </li>
             <li class="list-row">
-                <GoBackButton />
+                <GoBackButton buttonUrl={goBackURL} />
             </li>            
         </ul>
     </BlogBase>

@@ -1,5 +1,6 @@
+import type { AstroComponentFactory } from "astro/runtime/server/index.js";
 import PostInfo from "../classes/PostInfo.ts";
-import { DEFAULT_APPLICATION_NAME, DEFAULT_LOCALE, DEFAULT_TIMEZONE, DEFAULT_DATE_FORM, TODAY } from "../constants/DefaultValueConstants.ts"
+import { DEFAULT_APPLICATION_NAME, DEFAULT_LOCALE, DEFAULT_TIMEZONE, DEFAULT_DATE_FORM, TODAY, DEFAULT_PARTIAL_URL, HOME_DIRECTORY } from "../constants/DefaultValueConstants.ts"
 import { INCLUDE_DAY, USE_LONG_DATE_FORM } from "../constants/Options.ts";
 import { MAX_PREVIEW_LENGTH } from "../constants/TailwindConstants.ts";
 
@@ -66,4 +67,62 @@ export const parseDate = (date: number): string => {
 
 export const getYear = (date: Date): string => {
     return date.getFullYear().toString();
+}
+
+export const isAstro = (astro: any): boolean => {
+    if (astro && typeof(astro) === "object" && !Array.isArray(astro) && astro?.url && astro?.routePattern) {
+        return true;
+    }
+    return false;
+}
+
+export const objectPrinter = (object: any): string => {
+    if (typeof(object) !== "object") {
+        return String(object);
+    }
+    if (!object) {
+        return "null";
+    }
+    try {
+        return JSON.stringify(object);
+    } catch (error) {
+        return String(object);
+    }
+    return "unknown";
+}
+
+export const getCurrentPageURL = (astro: any): string => {
+    if (!isAstro(astro)) {
+        throw new TypeError(`Expected Astro, ${'"' + objectPrinter(astro) + '"'} given`);
+    }
+    let returnValue = String(astro.url || DEFAULT_PARTIAL_URL);
+    if (returnValue.endsWith("/")) {
+        returnValue = returnValue.slice(0, returnValue.length - 1);
+    }
+    return returnValue;
+}
+
+export const getGoBackURL = (astro: any, amount: number): string => {
+    const currentUrl: string = getCurrentPageURL(astro);
+    amount = Math.abs(Number(amount));
+    const parsedCurrentUrl: string[] = currentUrl.split("/");
+    for (let i:number = 0; i < amount; i++) {
+        // console.log("pop!\n");
+        // console.log(parsedCurrentUrl);
+        parsedCurrentUrl.pop();
+        if (parsedCurrentUrl.length <= 0) {
+            return DEFAULT_PARTIAL_URL;
+        }
+    }
+    // console.log(`\nGO BACK URL: ${String(parsedCurrentUrl.join("/") || DEFAULT_PARTIAL_URL)}\n`);
+    return parsedCurrentUrl.join("/") || DEFAULT_PARTIAL_URL;
+}
+
+export const getHomeURL = (astro: any): string => {
+    const currentUrl: string = getCurrentPageURL(astro);
+    const currentRoute: string = String(astro?.routePattern || HOME_DIRECTORY);
+    if (currentRoute === HOME_DIRECTORY) {
+        return currentUrl;
+    }
+    return currentUrl.replaceAll(currentRoute, "");
 }

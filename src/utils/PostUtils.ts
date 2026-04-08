@@ -1,5 +1,5 @@
-import { parseDate } from "../utils/GeneralUtils.ts";
 import { TODAY } from "../constants/DefaultValueConstants.ts";
+import { parseDate } from "../utils/GeneralUtils.ts";
 
 // https://regex-snippets.com/unix-path
 export const RelativeURLRegex: RegExp = /^\/(?:[^\/ ]+\/)*[^\/ ]*$|^\.(?:\/[^\/ ]+)+\/?$|^\.\.\/(?:[^\/ ]+\/)*[^\/ ]*$/;
@@ -33,10 +33,6 @@ export const validateDate = (date: string): string => {
     if (isNaN(parsedDate)) {
         throw new SyntaxError(`Invalid date: ${date}`)
     }
-
-    // console.log("PARSED DATE: " + parsedDate);
-    // console.log("TODAY: " + TODAY.getTime());
-
     if (parsedDate > TODAY.getTime()) {
         throw new RangeError(`Attempting to post something in the future: ${date}`);
     }

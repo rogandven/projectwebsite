@@ -2,6 +2,10 @@
 import { BLOG_ICON_NAME, DEFAULT_LINK } from "../../constants/DefaultValueConstants.ts";
 import ButtonBase from "./ButtonBase.astro";
 
+interface Props {
+    buttonUrl?: string;
+}
+
 const { 
     buttonUrl = DEFAULT_LINK,
 } = Astro.props;
