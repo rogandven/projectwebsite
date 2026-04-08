@@ -95,6 +95,7 @@ export const getCurrentPageURL = (astro: any): string => {
     if (!isAstro(astro)) {
         throw new TypeError(`Expected Astro, ${'"' + objectPrinter(astro) + '"'} given`);
     }
+    console.log(`CURRENT URL: ${String(astro.url || "/")}`);
     return String(astro.url || "/");
 }
 
@@ -108,5 +109,6 @@ export const getGoBackURL = (astro: any, amount: number): string => {
             return DEFAULT_PARTIAL_URL;
         }
     }
+    console.log(`GO BACK URL: ${String(parsedCurrentUrl.join("/") || DEFAULT_PARTIAL_URL)}`);
     return parsedCurrentUrl.join("/") || DEFAULT_PARTIAL_URL;
 }
