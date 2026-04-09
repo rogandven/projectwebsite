@@ -1,7 +1,8 @@
 import { USE_CHILEAN_LOCALE, USE_LONG_DATE_FORM } from "./Options.ts";
 import { getYear } from "../utils/GetYear.ts";
 
-export const DEFAULT_APPLICATION_NAME : string = "daisyUI";
+// export const DEFAULT_APPLICATION_NAME : string = "daisyUI";
+export const DEFAULT_APPLICATION_NAME : string = "Proyecto SCM";
 export const DEFAULT_SLOGAN : string = "Providing reliable tech since 1992";
 export const DEFAULT_LINK : string = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
 export const HOME_DIRECTORY : string = "/";
@@ -13,6 +14,7 @@ export const DEFAULT_IMAGE_LINK : string = "https://img.daisyui.com/images/stock
 export const DEFAULT_ICON_NAME : string = "mdi:block";
 export const BLOG_ICON_NAME : string = "mdi:book";
 export const RETURN_ICON_NAME : string = "mdi:arrow-back";
+export const APP_ICON_NAME : string = "mdi:marketplace";
 
 export const DEFAULT_POST_TITLE : string = "Default Title";
 export const DEFAULT_POST_DATE : string = "1970-01-01";

@@ -1,13 +1,13 @@
 ---
 import { HEADER_FOOTER_CLASS } from "../../constants/TailwindConstants.ts";
-import { DEFAULT_APPLICATION_NAME, DEFAULT_ICON_NAME, CURRENT_YEAR } from "../../constants/DefaultValueConstants.ts";
+import { DEFAULT_APPLICATION_NAME, DEFAULT_ICON_NAME, CURRENT_YEAR, APP_ICON_NAME } from "../../constants/DefaultValueConstants.ts";
 import FooterLink from "./FooterLink.astro";
 import { Icon } from "astro-icon/components";
 ---
 
 <footer class={"footer sm:footer-horizontal " + HEADER_FOOTER_CLASS + " p-10"}>
   <aside>
-    <Icon name={DEFAULT_ICON_NAME} class="text-5xl" />
+    <Icon name={APP_ICON_NAME} class="text-5xl" />
     <p>
       {DEFAULT_APPLICATION_NAME}
       <br />
