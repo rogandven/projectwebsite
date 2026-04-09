@@ -2,11 +2,11 @@
 import { Icon } from "astro-icon/components";
 import { APP_ICON_NAME, DEFAULT_APPLICATION_NAME, DEFAULT_ICON_NAME } from "../../constants/DefaultValueConstants.ts";
 import { DEFAULT_HALFSIDEMARGIN, NAVBAR_LEFTSIDE_CLASS } from "../../constants/TailwindConstants.ts";
-import { getHomeURL } from "../../utils/GeneralUtils.ts";
+import { getTrueHomeURL } from "../../utils/GeneralUtils.ts";
 ---
 
 <div class={NAVBAR_LEFTSIDE_CLASS}>
-    <a class={"btn btn-ghost text-xl " + DEFAULT_HALFSIDEMARGIN} href={getHomeURL(Astro)}>
+    <a class={"btn btn-ghost text-xl " + DEFAULT_HALFSIDEMARGIN} href={getTrueHomeURL(Astro)}>
         <Icon name={APP_ICON_NAME} />
         {DEFAULT_APPLICATION_NAME}
     </a>

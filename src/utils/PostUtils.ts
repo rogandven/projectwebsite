@@ -4,13 +4,14 @@ import { parseDate } from "../utils/GeneralUtils.ts";
 // https://regex-snippets.com/unix-path
 export const RelativeURLRegex: RegExp = /^\/(?:[^\/ ]+\/)*[^\/ ]*$|^\.(?:\/[^\/ ]+)+\/?$|^\.\.\/(?:[^\/ ]+\/)*[^\/ ]*$/;
 // https://regex-snippets.com/url-and-path
-export const AbsoluteURLRegex: RegExp = /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/;
+export const AbsoluteURLRegex: RegExp = /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.?[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/;
 
 export const validateURL = (URL: string): string => {
-    if (AbsoluteURLRegex.test(URL)) {
+    const URLWithoutHashtags = URL.split("#")[0];
+    if (AbsoluteURLRegex.test(URLWithoutHashtags)) {
         return URL;
     }
-    if (RelativeURLRegex.test(URL)) {
+    if (RelativeURLRegex.test(URLWithoutHashtags)) {
         return URL;
     }
     throw new TypeError(`Invalid URL: ${String(URL)}`);

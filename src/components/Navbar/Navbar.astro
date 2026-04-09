@@ -1,9 +1,11 @@
 ---
+import { APP_FEATURES_ICON_NAME, BLOG_ADDRESS, BLOG_ICON_NAME } from "../../constants/DefaultValueConstants";
+import { getFeaturesURL } from "../../utils/GeneralUtils";
 import NavbarBody from "./NavbarBody.astro";
 import NavbarLink from "./NavbarLink.astro";
 ---
 
 <NavbarBody>
-    <NavbarLink />
-    <NavbarLink name="Blog" iconName="mdi:book" destination="/blog"></NavbarLink>
+    <NavbarLink name="Características" iconName={APP_FEATURES_ICON_NAME} destination={getFeaturesURL(Astro)}></NavbarLink>
+    <NavbarLink name="Blog" iconName={BLOG_ICON_NAME} destination={BLOG_ADDRESS}></NavbarLink>
 </NavbarBody>

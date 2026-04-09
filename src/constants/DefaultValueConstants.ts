@@ -10,11 +10,15 @@ export const DEFAULT_TITLE : string = "Bienvenido a nuestro blog de tecnologia";
 export const DEFAULT_DESCRIPTION : string = "Compartimos noticias, guias y recomendaciones de videojuegos y desarrollo web.";
 export const DEFAULT_BUTTON_LABEL : string = "Ver publicaciones";
 export const DEFAULT_IMAGE_LINK : string = "https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp";
+export const GITHUB_LINK: string = "https://github.com/rogandven/projectwebsite";
+
 
 export const DEFAULT_ICON_NAME : string = "mdi:block";
 export const BLOG_ICON_NAME : string = "mdi:book";
 export const RETURN_ICON_NAME : string = "mdi:arrow-back";
 export const APP_ICON_NAME : string = "mdi:marketplace";
+export const APP_FEATURES_ICON_NAME : string = "mdi:clipboard-list";
+export const GITHUB_ICON_NAME : string = "mdi:github";
 
 export const DEFAULT_POST_TITLE : string = "Default Title";
 export const DEFAULT_POST_DATE : string = "1970-01-01";
@@ -48,7 +52,13 @@ export const COLOR_INFO: string = "info";
 export const COLOR_SUCCESS: string = "success";
 export const COLOR_WARNING: string = "warning";
 export const COLOR_ERROR: string = "error";
+export const COLOR_NEUTRAL: string = "neutral";
 
-export const COLOR_ARRAY: string[] = [COLOR_PRIMARY, COLOR_SECONDARY, COLOR_ACCENT, COLOR_INFO, COLOR_SUCCESS, COLOR_WARNING, COLOR_ERROR];
+export const COLOR_ARRAY: string[] = [COLOR_PRIMARY, COLOR_SECONDARY, COLOR_ACCENT, COLOR_INFO, COLOR_SUCCESS, COLOR_WARNING, COLOR_ERROR, COLOR_NEUTRAL];
 
 export const ICON_PREFIX: string = "mdi:";
+
+export const BLOG_ADDRESS: string = "/blog";
+
+export const FEATURES_ID: string = "features";
+export const HOME_ID: string = "home";

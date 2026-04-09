@@ -2,6 +2,14 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Home/Hero.astro';
 import InfoCardContainer from '../components/Home/InfoCard/InfoCardContainer.astro';
+import ButtonInfo from '../classes/ButtonInfo.ts';
+import { BLOG_ADDRESS, BLOG_ICON_NAME, COLOR_PRIMARY, COLOR_SECONDARY, APP_FEATURES_ICON_NAME } from '../constants/DefaultValueConstants.ts';
+import { getFeaturesURL } from '../utils/GeneralUtils.ts';
+
+const BUTTON_ARRAY: ButtonInfo[] = [
+    new ButtonInfo(APP_FEATURES_ICON_NAME, getFeaturesURL(Astro), COLOR_PRIMARY, "Ver Características", "", false),
+    new ButtonInfo(BLOG_ICON_NAME, BLOG_ADDRESS, COLOR_SECONDARY, "Ver Blog", "", false),
+];
 ---
 
 <Layout title="Inicio">
@@ -14,6 +22,7 @@ import InfoCardContainer from '../components/Home/InfoCard/InfoCardContainer.ast
         versión mejorada en desarrollo de ellos, 
         y el sistema de solicitud de compras a 
         Mercado Público no es la excepción.'
+        buttons={BUTTON_ARRAY}
     />
     <InfoCardContainer />
 </Layout>

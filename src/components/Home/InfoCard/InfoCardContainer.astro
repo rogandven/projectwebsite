@@ -1,8 +1,9 @@
 ---
 import InfoCard from "./InfoCard.astro";
+import { FEATURES_ID } from "../../../constants/DefaultValueConstants.ts";
 ---
 
-<div class={"flex flex-wrap justify-center content-center w-full"}>
+<div class={"flex flex-wrap justify-center content-center w-full"} id={FEATURES_ID}>
     <InfoCard></InfoCard>
     <InfoCard></InfoCard>
     <InfoCard></InfoCard>

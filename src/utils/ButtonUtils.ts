@@ -26,7 +26,7 @@ export const validateColor = (color: string): string => {
 }
 
 export const validateText = (text: string): string => {
-    text = text.trim().toLowerCase();
+    text = text.trim();
     if (text.length <= 0) {
         throw new TypeError("Button text cannot be empty");
     }
