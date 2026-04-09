@@ -1,7 +1,9 @@
 ---
 import FooterBase from "./FooterBase.astro";
+import FooterLink from "./FooterLink.astro";
+import { GITHUB_LINK, GITHUB_ICON_NAME } from "../../constants/DefaultValueConstants.ts";
 ---
 
 <FooterBase>
-
+    <FooterLink iconName={GITHUB_ICON_NAME} destination={GITHUB_LINK}/>
 </FooterBase>

@@ -1,7 +1,6 @@
 ---
 import { HEADER_FOOTER_CLASS } from "../../constants/TailwindConstants.ts";
-import { DEFAULT_APPLICATION_NAME, DEFAULT_ICON_NAME, CURRENT_YEAR, APP_ICON_NAME, GITHUB_LINK, GITHUB_ICON_NAME } from "../../constants/DefaultValueConstants.ts";
-import FooterLink from "./FooterLink.astro";
+import { DEFAULT_APPLICATION_NAME, CURRENT_YEAR, APP_ICON_NAME } from "../../constants/DefaultValueConstants.ts";
 import { Icon } from "astro-icon/components";
 import { getTrueHomeURL } from "../../utils/GeneralUtils";
 ---
@@ -18,7 +17,7 @@ import { getTrueHomeURL } from "../../utils/GeneralUtils";
   <nav>
     <h6 class="footer-title">Redes Sociales</h6>
     <div class="grid grid-flow-col gap-4">
-      <FooterLink iconName={GITHUB_ICON_NAME} destination={GITHUB_LINK}/>
+      <slot />
     </div>
   </nav>
 </footer>
