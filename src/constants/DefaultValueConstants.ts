@@ -40,3 +40,15 @@ export const TODAY : Date = new Date();
 export const CURRENT_YEAR : string = getYear(TODAY);
 
 export const DEFAULT_PARTIAL_URL : string = "";
+
+export const COLOR_PRIMARY: string = "primary";
+export const COLOR_SECONDARY: string = "secondary";
+export const COLOR_ACCENT: string = "accent";
+export const COLOR_INFO: string = "info";
+export const COLOR_SUCCESS: string = "success";
+export const COLOR_WARNING: string = "warning";
+export const COLOR_ERROR: string = "error";
+
+export const COLOR_ARRAY: string[] = [COLOR_PRIMARY, COLOR_SECONDARY, COLOR_ACCENT, COLOR_INFO, COLOR_SUCCESS, COLOR_WARNING, COLOR_ERROR];
+
+export const ICON_PREFIX: string = "mdi:";
