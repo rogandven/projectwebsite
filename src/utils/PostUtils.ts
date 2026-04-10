@@ -28,6 +28,22 @@ export const validateString = (str: string, fieldName: string): string => {
     return str;
 }
 
+export const normalizeName = (name: string): string => {
+    let array: string[] = name.split(" ");
+    array = array.filter((str: string) => {
+        return str.length !== 0;
+    });
+    array = array.map((str: string) => {
+        return str.substring(0, 1).toUpperCase() + str.substring(1, str.length).toLowerCase();
+    });
+    return array.join(" ");    
+}
+
+export const validateAuthor = (str: string): string => {
+    str = validateString(str, "author");
+    return normalizeName(str);
+}
+
 export const validateDate = (date: string): string => {
     date = validateString(date, "date");
     const parsedDate: number = Date.parse(date);

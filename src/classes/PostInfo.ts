@@ -1,5 +1,5 @@
 import { DEFAULT_LINK, DEFAULT_POST_AUTHOR, DEFAULT_POST_DATE, DEFAULT_POST_DESCRIPTION, DEFAULT_POST_IMAGE, DEFAULT_POST_IMAGE_ALT, DEFAULT_POST_TITLE } from "../constants/DefaultValueConstants.ts";
-import { validateDate, validateURL, validateString } from "../utils/PostUtils.ts";
+import { validateDate, validateURL, validateString, validateAuthor } from "../utils/PostUtils.ts";
 
 export class PostInfo {
     private _title: string = DEFAULT_POST_TITLE;
@@ -46,7 +46,7 @@ export class PostInfo {
         return this._author;
     }
     set author(author: string) {
-        this._author = validateString(author, "author");
+        this._author = validateAuthor(author);
     }
 
     get image(): string {
