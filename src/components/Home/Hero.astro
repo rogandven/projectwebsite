@@ -1,6 +1,7 @@
 ---
 import type ButtonInfo from '../../classes/ButtonInfo.ts';
 import { DEFAULT_TITLE, DEFAULT_DESCRIPTION, HOME_ID } from '../../constants/DefaultValueConstants.ts';
+import { DEFAULT_BOTTOMMARGIN } from '../../constants/TailwindConstants.ts';
 import { DEFAULT_HEROBUTTONMARGIN, HERO_CLASS } from '../../constants/TailwindConstants.ts';
 import { getCollegeImageURL } from '../../utils/ImageUtils.ts';
 import ButtonBase from '../Buttons/ButtonBase.astro';
@@ -28,8 +29,8 @@ const {
   <div class="hero-overlay"></div>
   <div class="hero-content text-neutral-content text-center">
     <div class="w-full">
-      <h1 class="mb-5 text-5xl font-bold">{title}</h1>
-      <p class="mb-5">{description}</p>
+      <h1 class={`${DEFAULT_BOTTOMMARGIN} text-5xl font-bold`}>{title}</h1>
+      <p class={`${DEFAULT_BOTTOMMARGIN}`}>{description}</p>
       {buttons.map((button) => 
       <ButtonBase 
         iconName={button.iconName}
