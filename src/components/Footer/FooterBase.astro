@@ -1,5 +1,5 @@
 ---
-import { HEADER_FOOTER_CLASS } from "../../constants/TailwindConstants.ts";
+import { DARKER_TEXT_FOOTER, HEADER_FOOTER_CLASS } from "../../constants/TailwindConstants.ts";
 import { DEFAULT_APPLICATION_NAME, CURRENT_YEAR } from "../../constants/DefaultValueConstants.ts";
 import { APP_ICON_NAME } from "../../constants/IconConstants.ts";
 import { Icon } from "astro-icon/components";
@@ -8,15 +8,15 @@ import { getTrueHomeURL } from "../../utils/GeneralUtils";
 
 <footer class={"footer sm:footer-horizontal " + HEADER_FOOTER_CLASS + " p-10"}>
   <aside>
-    <a href={getTrueHomeURL(Astro)}><Icon name={APP_ICON_NAME} class="text-5xl" /></a>
+    <a href={getTrueHomeURL(Astro)}><Icon name={APP_ICON_NAME} class="text-5xl text-primary" /></a>
     <p>
-      <span class="font-semibold">{DEFAULT_APPLICATION_NAME}</span>
+      <span class="font-semibold text-primary">{DEFAULT_APPLICATION_NAME}</span>
       <br />
       Copyright &copy; <span id="copyright">{CURRENT_YEAR}</span>. Todos los derechos reservados.
     </p>
   </aside>
   <nav>
-    <h6 class="footer-title">Redes Sociales</h6>
+    <h6 class=`footer-title ${DARKER_TEXT_FOOTER}`>Redes Sociales</h6>
     <div class="grid grid-flow-col gap-4">
       <slot />
     </div>

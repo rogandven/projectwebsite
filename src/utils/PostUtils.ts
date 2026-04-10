@@ -28,12 +28,20 @@ export const validateString = (str: string, fieldName: string): string => {
     return str;
 }
 
-export const normalizeName = (name: string): string => {
+export const normalizeName = (name: string, isHumanName: boolean): string => {
     let array: string[] = name.split(" ");
     array = array.filter((str: string) => {
         return str.length !== 0;
     });
-    array = array.map((str: string) => {
+    array = array.map((str: string, index) => {
+        if (!isHumanName) {
+            if (str === "PHP") {
+                return str.toUpperCase();
+            }
+            if (index !== 0 && str.length <= 2) {
+                return str.toLowerCase();
+            }
+        }
         return str.substring(0, 1).toUpperCase() + str.substring(1, str.length).toLowerCase();
     });
     return array.join(" ");    
@@ -41,7 +49,12 @@ export const normalizeName = (name: string): string => {
 
 export const validateAuthor = (str: string): string => {
     str = validateString(str, "author");
-    return normalizeName(str);
+    return normalizeName(str, true);
+}
+
+export const validateCardTitle = (str: string): string => {
+    str = validateString(str, "cardTitle");
+    return normalizeName(str, false); 
 }
 
 export const validateDate = (date: string): string => {

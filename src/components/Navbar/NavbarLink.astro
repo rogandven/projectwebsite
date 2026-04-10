@@ -18,4 +18,8 @@ const {
 } = Astro.props;
 ---
 
-<li class={DEFAULT_SIDEMARGIN}><a href={getAbsoluteURL(Astro, destination)}><Icon name={iconName}/>{name}</a></li>
+<li class={DEFAULT_SIDEMARGIN}>
+    <a href={getAbsoluteURL(Astro, destination)} class="text-secondary">
+        <Icon name={iconName}/>{name}
+    </a>
+</li>

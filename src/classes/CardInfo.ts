@@ -1,7 +1,7 @@
 import { DEFAULT_DESCRIPTION, DEFAULT_TITLE } from "../constants/DefaultValueConstants.ts";
 import { DEFAULT_ICON_NAME } from "../constants/IconConstants.ts";
 import { validateIconName } from "../utils/ButtonUtils.ts";
-import { validateString } from "../utils/PostUtils.ts";
+import { validateCardTitle, validateString } from "../utils/PostUtils.ts";
 
 export class CardInfo {
     private _iconName?: string = DEFAULT_ICON_NAME;
@@ -29,7 +29,7 @@ export class CardInfo {
         return String(this._cardTitle);
     }
     set cardTitle(cardTitle: string) {
-        this._cardTitle = validateString(cardTitle, "cardTitle");
+        this._cardTitle = validateCardTitle(cardTitle);
     }    
 
     get description(): string {
