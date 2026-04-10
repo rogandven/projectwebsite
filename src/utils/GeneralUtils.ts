@@ -1,4 +1,5 @@
 import CardInfo from "../classes/CardInfo.ts";
+import type LinkInfo from "../classes/LinkInfo.ts";
 import PostInfo from "../classes/PostInfo.ts";
 import { DEFAULT_APPLICATION_NAME, DEFAULT_LOCALE, DEFAULT_TIMEZONE, DEFAULT_DATE_FORM, TODAY, DEFAULT_PARTIAL_URL, HOME_DIRECTORY, FEATURES_ID, HOME_ID, COLLEGE_IMAGE_URL } from "../constants/DefaultValueConstants.ts"
 import { INCLUDE_DAY, USE_LONG_DATE_FORM } from "../constants/Options.ts";
@@ -133,6 +134,13 @@ export const getTrueHomeURL = (astro: any): string => {
 export const sortCardInfos = (arr: CardInfo[]): CardInfo[] => {
     arr.sort((a: CardInfo, b: CardInfo) => {
         return a.cardTitle.localeCompare(b.cardTitle);
+    })
+    return arr;
+}
+
+export const sortLinkInfos = (arr: LinkInfo[]): LinkInfo[] => {
+    arr.sort((a: LinkInfo, b: LinkInfo) => {
+        return a.text.localeCompare(b.text);
     })
     return arr;
 }

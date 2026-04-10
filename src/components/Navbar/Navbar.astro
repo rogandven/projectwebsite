@@ -4,9 +4,19 @@ import { getFeaturesURL } from "../../utils/GeneralUtils.ts";
 import NavbarBody from "./NavbarBody.astro";
 import NavbarLink from "./NavbarLink.astro";
 import { APP_FEATURES_ICON_NAME, BLOG_ICON_NAME } from "../../constants/IconConstants.ts";
+import LinkInfo from "../../classes/LinkInfo.ts";
+
+interface Props {
+    links?: LinkInfo[];
+}
+
+const { 
+    links = [],
+} = Astro.props;
 ---
 
 <NavbarBody>
-    <NavbarLink name={BLOG_TEXT} iconName={BLOG_ICON_NAME} destination={BLOG_ADDRESS}></NavbarLink>
-    <NavbarLink name={FEATURES_TEXT} iconName={APP_FEATURES_ICON_NAME} destination={getFeaturesURL(Astro)}></NavbarLink>
+    {links.map((link) => 
+        <NavbarLink name={link.text} iconName={link.iconName} destination={link.destination} />
+    )}
 </NavbarBody>
