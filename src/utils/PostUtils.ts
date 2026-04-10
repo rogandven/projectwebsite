@@ -1,5 +1,7 @@
+import type PostInfo from "../classes/PostInfo.ts";
 import { TODAY } from "../constants/DefaultValueConstants.ts";
 import { parseDate } from "../utils/GeneralUtils.ts";
+import CustomDate from "../classes/CustomDate.ts";
 
 // https://regex-snippets.com/unix-path
 export const RelativeURLRegex: RegExp = /^\/(?:[^\/ ]+\/)*[^\/ ]*$|^\.(?:\/[^\/ ]+)+\/?$|^\.\.\/(?:[^\/ ]+\/)*[^\/ ]*$/;
@@ -57,7 +59,7 @@ export const validateCardTitle = (str: string): string => {
     return normalizeName(str, false); 
 }
 
-export const validateDate = (date: string): string => {
+export const validateDate = (date: string): CustomDate => {
     date = validateString(date, "date");
     const parsedDate: number = Date.parse(date);
     if (isNaN(parsedDate)) {
@@ -66,5 +68,12 @@ export const validateDate = (date: string): string => {
     if (parsedDate > TODAY.getTime()) {
         throw new RangeError(`Attempting to post something in the future: ${date}`);
     }
-    return parseDate(parsedDate);
+    return new CustomDate(parsedDate, parseDate(parsedDate));
+}
+
+export const sortPostInfos = (arr: PostInfo[]): PostInfo[] => {
+    arr.sort((a, b) => {
+        return b.unixTime - a.unixTime;
+    })
+    return arr;
 }

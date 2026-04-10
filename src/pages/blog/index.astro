@@ -5,7 +5,8 @@ import PostInfo from '../../classes/PostInfo.ts';
 import Post from '../../components/Blog/Post.astro';
 import BlogBase from '../../components/Blog/BlogBase.astro';
 import GoBackButton from '../../components/Buttons/GoBackButton.astro';
-const posts: PostInfo[] = getPosts();
+import { sortPostInfos } from '../../utils/PostUtils.ts';
+const posts: PostInfo[] = sortPostInfos(getPosts());
 const HOME_URL: string = getTrueHomeURL(Astro);
 ---
 
