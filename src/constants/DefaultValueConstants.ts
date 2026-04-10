@@ -59,4 +59,4 @@ export const COLLEGE_IMAGE_URL = "/images/college.jpg";
 export const AUTHOR_IMAGE_URL = "/images/blog/default_user.png";
 
 export const ROGER_VENEGAS_NAME = "ROGER VENEGAS";
-export const ROGER_VENEGAS_PFP = "/images/blog/default_user.png";
+export const ROGER_VENEGAS_PFP = "/images/blog/roger_venegas.png";
