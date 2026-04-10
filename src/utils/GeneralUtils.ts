@@ -1,6 +1,5 @@
-import type { AstroComponentFactory } from "astro/runtime/server/index.js";
 import PostInfo from "../classes/PostInfo.ts";
-import { DEFAULT_APPLICATION_NAME, DEFAULT_LOCALE, DEFAULT_TIMEZONE, DEFAULT_DATE_FORM, TODAY, DEFAULT_PARTIAL_URL, HOME_DIRECTORY, FEATURES_ID, HOME_ID } from "../constants/DefaultValueConstants.ts"
+import { DEFAULT_APPLICATION_NAME, DEFAULT_LOCALE, DEFAULT_TIMEZONE, DEFAULT_DATE_FORM, TODAY, DEFAULT_PARTIAL_URL, HOME_DIRECTORY, FEATURES_ID, HOME_ID, COLLEGE_IMAGE_URL } from "../constants/DefaultValueConstants.ts"
 import { INCLUDE_DAY, USE_LONG_DATE_FORM } from "../constants/Options.ts";
 import { MAX_PREVIEW_LENGTH } from "../constants/TailwindConstants.ts";
 

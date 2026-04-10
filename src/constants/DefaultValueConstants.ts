@@ -12,14 +12,6 @@ export const DEFAULT_BUTTON_LABEL : string = "Ver publicaciones";
 export const DEFAULT_IMAGE_LINK : string = "https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp";
 export const GITHUB_LINK: string = "https://github.com/rogandven/projectwebsite";
 
-
-export const DEFAULT_ICON_NAME : string = "mdi:block";
-export const BLOG_ICON_NAME : string = "mdi:book";
-export const RETURN_ICON_NAME : string = "mdi:arrow-back";
-export const APP_ICON_NAME : string = "mdi:marketplace";
-export const APP_FEATURES_ICON_NAME : string = "mdi:clipboard-list";
-export const GITHUB_ICON_NAME : string = "mdi:github";
-
 export const DEFAULT_POST_TITLE : string = "Default Title";
 export const DEFAULT_POST_DATE : string = "1970-01-01";
 export const DEFAULT_POST_AUTHOR : string = "Default Author";
@@ -62,3 +54,9 @@ export const BLOG_ADDRESS: string = "/blog";
 
 export const FEATURES_ID: string = "features";
 export const HOME_ID: string = "home";
+
+export const COLLEGE_IMAGE_URL = "/images/college.jpg";
+export const AUTHOR_IMAGE_URL = "/images/blog/default_user.png";
+
+export const ROGER_VENEGAS_NAME = "ROGER VENEGAS";
+export const ROGER_VENEGAS_PFP = "/images/blog/default_user.png";
