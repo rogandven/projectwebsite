@@ -72,7 +72,7 @@ export const validateDate = (date: string): CustomDate => {
 }
 
 export const sortPostInfos = (arr: PostInfo[]): PostInfo[] => {
-    arr.sort((a, b) => {
+    arr.sort((a: PostInfo, b: PostInfo) => {
         return b.unixTime - a.unixTime;
     })
     return arr;

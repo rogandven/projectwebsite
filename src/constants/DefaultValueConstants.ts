@@ -65,3 +65,5 @@ export const INDEX_PREFIX: string = "Las nuevas versiones de los módulos";
 
 export const FEATURES_TEXT: string = "Características";
 export const BLOG_TEXT: string = "Blog";
+
+export const DEFAULT_BUTTON_PREFIX = "Ver ";

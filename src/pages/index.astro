@@ -4,16 +4,17 @@ import Hero from '../components/Home/Hero.astro';
 import InfoCardContainer from '../components/Home/InfoCard/InfoCardContainer.astro';
 import ButtonInfo from '../classes/ButtonInfo.ts';
 import CardInfo from '../classes/CardInfo.ts';
-import { BLOG_ADDRESS, BLOG_TEXT, COLOR_PRIMARY, COLOR_SECONDARY, FEATURES_TEXT, INDEX_PREFIX } from '../constants/DefaultValueConstants.ts';
+import { BLOG_ADDRESS, BLOG_TEXT, COLOR_PRIMARY, COLOR_SECONDARY, FEATURES_TEXT, INDEX_PREFIX, DEFAULT_BUTTON_PREFIX } from '../constants/DefaultValueConstants.ts';
 import { BLOG_ICON_NAME, APP_FEATURES_ICON_NAME } from '../constants/IconConstants.ts';
-import { getFeaturesURL } from '../utils/GeneralUtils.ts';
+import { getFeaturesURL, sortCardInfos } from '../utils/GeneralUtils.ts';
+import { sortButtonInfos } from '../utils/ButtonUtils.ts';
 
-const BUTTON_ARRAY: ButtonInfo[] = [
-    new ButtonInfo(APP_FEATURES_ICON_NAME, getFeaturesURL(Astro), COLOR_PRIMARY, `Ver ${FEATURES_TEXT}`, "", false),
-    new ButtonInfo(BLOG_ICON_NAME, BLOG_ADDRESS, COLOR_SECONDARY, `Ver ${BLOG_TEXT}`, "", false),
-];
+const BUTTON_ARRAY: ButtonInfo[] = sortButtonInfos([
+    new ButtonInfo(APP_FEATURES_ICON_NAME, getFeaturesURL(Astro), COLOR_PRIMARY, `${DEFAULT_BUTTON_PREFIX}${FEATURES_TEXT}`, "", false),
+    new ButtonInfo(BLOG_ICON_NAME, BLOG_ADDRESS, COLOR_SECONDARY, `${DEFAULT_BUTTON_PREFIX}${BLOG_TEXT}`, "", false),
+]);
 
-const CARD_INFO_ARRAY: CardInfo[] = [
+const CARD_INFO_ARRAY: CardInfo[] = sortCardInfos([
     new CardInfo("mdi:language-php", "Nueva versión de PHP", 
                 `${INDEX_PREFIX} serán migradas de PHP 5.4 a PHP 8.2, la cual incluye varias mejoras de seguridad, 
                 seguirá recibiendo soporte en 2026 y actualiza su funcionalidad a los estándares modernos.`
@@ -39,7 +40,7 @@ const CARD_INFO_ARRAY: CardInfo[] = [
                 que restringen la forma en que deben gestionarse las compras a agentes externos en 
                 entornos digitales en Chile.`
     ),             
-];
+]);
 ---
 
 <Layout title="Inicio">
