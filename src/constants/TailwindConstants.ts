@@ -25,3 +25,6 @@ export const MAX_PREVIEW_LENGTH : number = 40;
 
 export const DEFAULT_BUTTON_COLOR = "btn-neutral";
 export const DEFAULT_BUTTON_COLOR_ARG = "neutral";
+
+export const HERO_TITLE_CLASS : string = "text-5xl font-bold";
+export const HERO_TEXT_CLASS : string = "hero-content text-center";

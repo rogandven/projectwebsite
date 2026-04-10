@@ -1,23 +1,38 @@
 ---
 import InfoCard from "./InfoCard.astro";
-import { FEATURES_ID } from "../../../constants/DefaultValueConstants.ts";
+import { DEFAULT_DESCRIPTION, DEFAULT_TITLE, FEATURES_ID } from "../../../constants/DefaultValueConstants.ts";
 import CardInfo from "../../../classes/CardInfo.ts";
+import { DEFAULT_BOTTOMMARGIN, DEFAULT_TOPMARGIN, HERO_TEXT_CLASS, HERO_TITLE_CLASS } from "../../../constants/TailwindConstants";
 
 interface Props {
-    cards?: CardInfo[];
+    cards?: CardInfo[],
+    title?: string,
+    description?: string,
 }
 
 const { 
     cards = [new CardInfo()],
+    title = DEFAULT_TITLE,
+    description = DEFAULT_DESCRIPTION,
 } = Astro.props;
 ---
-
-<div class={"flex flex-wrap justify-center content-center w-full"} id={FEATURES_ID}>
-    {cards.map((card) => 
-        <InfoCard 
-            iconName={card.iconName}
-            cardTitle={card.cardTitle}
-            description={card.description}
-        />        
-    )}               
+<div id={FEATURES_ID}>
+    <div class="hero">
+        <div class="hero-overlay opacity-0" />
+        <div class={`${HERO_TEXT_CLASS}`}>
+            <div class="w-full">
+                <h1 class={`${HERO_TITLE_CLASS} text-primary ${DEFAULT_BOTTOMMARGIN}`}>{title}</h1>
+                <p>{description}</p>
+            </div>
+        </div>
+    </div>
+    <div class={"flex flex-wrap justify-center content-center w-full"}>
+        {cards.map((card) => 
+            <InfoCard 
+                iconName={card.iconName}
+                cardTitle={card.cardTitle}
+                description={card.description}
+            />        
+        )}               
+    </div>
 </div>

@@ -4,13 +4,13 @@ import Hero from '../components/Home/Hero.astro';
 import InfoCardContainer from '../components/Home/InfoCard/InfoCardContainer.astro';
 import ButtonInfo from '../classes/ButtonInfo.ts';
 import CardInfo from '../classes/CardInfo.ts';
-import { BLOG_ADDRESS, COLOR_PRIMARY, COLOR_SECONDARY, INDEX_PREFIX } from '../constants/DefaultValueConstants.ts';
+import { BLOG_ADDRESS, BLOG_TEXT, COLOR_PRIMARY, COLOR_SECONDARY, FEATURES_TEXT, INDEX_PREFIX } from '../constants/DefaultValueConstants.ts';
 import { BLOG_ICON_NAME, APP_FEATURES_ICON_NAME } from '../constants/IconConstants.ts';
 import { getFeaturesURL } from '../utils/GeneralUtils.ts';
 
 const BUTTON_ARRAY: ButtonInfo[] = [
-    new ButtonInfo(APP_FEATURES_ICON_NAME, getFeaturesURL(Astro), COLOR_PRIMARY, "Ver Características", "", false),
-    new ButtonInfo(BLOG_ICON_NAME, BLOG_ADDRESS, COLOR_SECONDARY, "Ver Blog", "", false),
+    new ButtonInfo(APP_FEATURES_ICON_NAME, getFeaturesURL(Astro), COLOR_PRIMARY, `Ver ${FEATURES_TEXT}`, "", false),
+    new ButtonInfo(BLOG_ICON_NAME, BLOG_ADDRESS, COLOR_SECONDARY, `Ver ${BLOG_TEXT}`, "", false),
 ];
 
 const CARD_INFO_ARRAY: CardInfo[] = [
@@ -54,5 +54,9 @@ const CARD_INFO_ARRAY: CardInfo[] = [
         Mercado Público no es la excepción.'
         buttons={BUTTON_ARRAY}
     />
-    <InfoCardContainer cards={CARD_INFO_ARRAY}/>
+    <InfoCardContainer 
+        title='Características'
+        description='La integración de estas características es lo que inspiró todo este proceso de migración.'
+        cards={CARD_INFO_ARRAY}
+    />
 </Layout>

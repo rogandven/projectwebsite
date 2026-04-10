@@ -62,3 +62,6 @@ export const ROGER_VENEGAS_NAME = "ROGER VENEGAS";
 export const ROGER_VENEGAS_PFP = "/images/blog/roger_venegas.png";
 
 export const INDEX_PREFIX: string = "Las nuevas versiones de los módulos";
+
+export const FEATURES_TEXT: string = "Características";
+export const BLOG_TEXT: string = "Blog";
