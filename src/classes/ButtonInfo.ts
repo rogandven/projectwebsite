@@ -1,4 +1,5 @@
-import { DEFAULT_APPLICATION_NAME, DEFAULT_ICON_NAME, DEFAULT_LINK } from "../constants/DefaultValueConstants.ts";
+import { DEFAULT_APPLICATION_NAME, DEFAULT_LINK } from "../constants/DefaultValueConstants.ts";
+import { DEFAULT_ICON_NAME } from "../constants/IconConstants.ts";
 import { DEFAULT_BUTTON_COLOR_ARG } from "../constants/TailwindConstants.ts";
 import { validateColor, validateIconName, validateIsPostButton, validateText } from "../utils/ButtonUtils.ts";
 import { validateURL } from "../utils/PostUtils.ts";
