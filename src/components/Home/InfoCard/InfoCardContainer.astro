@@ -1,14 +1,46 @@
 ---
 import InfoCard from "./InfoCard.astro";
 import { FEATURES_ID } from "../../../constants/DefaultValueConstants.ts";
+
+const PREFIX = "Las nuevas versiones de los módulos";
 ---
 
 <div class={"flex flex-wrap justify-center content-center w-full"} id={FEATURES_ID}>
-    <InfoCard></InfoCard>
-    <InfoCard></InfoCard>
-    <InfoCard></InfoCard>
-    <InfoCard></InfoCard>
-    <InfoCard></InfoCard>
-    <InfoCard></InfoCard>
-    <InfoCard></InfoCard>
+    <InfoCard 
+        iconName="mdi:language-php" 
+        cardTitle="Nueva versión de PHP"
+        description={`${PREFIX} serán migradas de PHP 5.4 a PHP 8.2, la cual incluye varias mejoras de seguridad, 
+                    seguirá recibiendo soporte en 2026 y actualiza su funcionalidad a los estándares modernos.`}
+    />
+    <InfoCard 
+        iconName="mdi:email-send-outline" 
+        cardTitle="Mejor interoperabilidad"
+        description={`${PREFIX} ofreceran mejor interoperabilidad con la API de Mercado Público.`}        
+    />
+    <InfoCard 
+        iconName="mdi:security" 
+        cardTitle="Validaciones de datos robustas"
+        description={`${PREFIX} ofreceran mejor validación de datos tanto en el cliente como en el 
+                        servidor, lo que agiliza el proceso de rellenar los formularios necesarios, 
+                        además de mejorar la seguridad general de la aplicación.`}         
+    />
+    <InfoCard 
+        iconName="mdi:paint-outline" 
+        cardTitle="Rediseño visual"
+        description={`${PREFIX} se ajustarán a los estándares de rediseño visual vigentes, establecidos 
+                    por el equipo de Transformación Digital de la Universidad del Bío-Bío.`}         
+    />
+    <InfoCard 
+        iconName="mdi:accessibility" 
+        cardTitle="Accesibilidad"
+        description={`${PREFIX} se ajustarán a los estándares de accesibilidad vigentes, 
+                    establecidos por el equipo de Transformación Digital de la Universidad del Bío-Bío.`}         
+    />
+    <InfoCard 
+        iconName="mdi:legal" 
+        cardTitle="Cumplimiento Legal"
+        description={`${PREFIX} seguirán las restricciones establecidas por las leyes 19.886 y 21.180, 
+                    que restringen la forma en que deben gestionarse las compras a agentes externos en 
+                    entornos digitales en Chile.`}         
+    />                          
 </div>
