@@ -7,6 +7,7 @@ export const DEFAULT_TOPMARGIN : string = "mt-2";
 export const DEFAULT_BOTTOMMARGIN : string = "mb-2";
 export const DEFAULT_SIDEMARGIN : string = " ml-2 ";
 export const DEFAULT_HALFSIDEMARGIN : string = " ml-1 ";
+export const DEFAULT_HEROBUTTONMARGIN : string = " ml-0.5 mr-0.5 mb-2 "
 
 export const HERO_CLASS : string = IS_HERO_DYNAMIC ? "min-h-screen" : "h-100";
 export const NAVBAR_LEFTSIDE_CLASS : string = IS_NAVBAR_DYNAMIC ? "flex flex-1 flex-wrap justify-start" : "flex-1";

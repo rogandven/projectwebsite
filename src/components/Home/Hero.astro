@@ -1,7 +1,7 @@
 ---
 import type ButtonInfo from '../../classes/ButtonInfo.ts';
 import { DEFAULT_TITLE, DEFAULT_DESCRIPTION, HOME_ID } from '../../constants/DefaultValueConstants.ts';
-import { HERO_CLASS } from '../../constants/TailwindConstants.ts';
+import { DEFAULT_HEROBUTTONMARGIN, HERO_CLASS } from '../../constants/TailwindConstants.ts';
 import { getCollegeImageURL } from '../../utils/ImageUtils.ts';
 import ButtonBase from '../Buttons/ButtonBase.astro';
 
@@ -36,7 +36,7 @@ const {
         destination={button.destination}
         color={button.color}
         text={button.text}
-        classes={button.classes}
+        classes={button.classes + DEFAULT_HEROBUTTONMARGIN}
         isPostButton={button.isPostButton}
       />
       )}
