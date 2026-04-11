@@ -21,7 +21,7 @@ const {
     <div class={MIDDLE_ALIGNER}>
         <img class="size-10 rounded-full mr-2" src={getAuthorImage(Astro, post.author)} alt={post.author}/>
         <div>
-            <h3 class="text-base">{post.author}</h3>
+            <h3 class="text-base font-bold">{post.author}</h3>
             <div class={MIDDLE_ALIGNER}>
                 <Icon class={DARKER_TEXT} name={CALENDAR_ICON_NAME} />
                 <h4 class={DARKER_TEXT}>{post.date}</h4>
