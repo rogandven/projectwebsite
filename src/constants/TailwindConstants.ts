@@ -18,7 +18,7 @@ export const HEADER_FOOTER_CLASS : string = CUSTOM_HEADER_COLOR ? "bg-primary te
 
 export const MIDDLE_ALIGNER : string = "flex flex-row items-center align-middle";
 // export const DARKER_TEXT : string = "text-xs mr-1 uppercase font-semibold opacity-60";
-export const DARKER_TEXT : string = "text-xs mr-1 uppercase font-semibold text-secondary";
+export const DARKER_TEXT : string = "text-xs mr-1 uppercase font-semibold text-accent";
 export const DARKER_TEXT_FOOTER : string = "opacity-100";
 
 export const MAX_PREVIEW_LENGTH : number = 40;
