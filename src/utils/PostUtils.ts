@@ -1,16 +1,19 @@
+import type PostInfo from "../classes/PostInfo.ts";
 import { TODAY } from "../constants/DefaultValueConstants.ts";
 import { parseDate } from "../utils/GeneralUtils.ts";
+import CustomDate from "../classes/CustomDate.ts";
 
 // https://regex-snippets.com/unix-path
 export const RelativeURLRegex: RegExp = /^\/(?:[^\/ ]+\/)*[^\/ ]*$|^\.(?:\/[^\/ ]+)+\/?$|^\.\.\/(?:[^\/ ]+\/)*[^\/ ]*$/;
 // https://regex-snippets.com/url-and-path
-export const AbsoluteURLRegex: RegExp = /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/;
+export const AbsoluteURLRegex: RegExp = /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.?[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/;
 
 export const validateURL = (URL: string): string => {
-    if (AbsoluteURLRegex.test(URL)) {
+    const URLWithoutHashtags = URL.split("#")[0];
+    if (AbsoluteURLRegex.test(URLWithoutHashtags)) {
         return URL;
     }
-    if (RelativeURLRegex.test(URL)) {
+    if (RelativeURLRegex.test(URLWithoutHashtags)) {
         return URL;
     }
     throw new TypeError(`Invalid URL: ${String(URL)}`);
@@ -27,7 +30,36 @@ export const validateString = (str: string, fieldName: string): string => {
     return str;
 }
 
-export const validateDate = (date: string): string => {
+export const normalizeName = (name: string, isHumanName: boolean): string => {
+    let array: string[] = name.split(" ");
+    array = array.filter((str: string) => {
+        return str.length !== 0;
+    });
+    array = array.map((str: string, index) => {
+        if (!isHumanName) {
+            if (str === "PHP") {
+                return str.toUpperCase();
+            }
+            if (index !== 0 && str.length <= 2) {
+                return str.toLowerCase();
+            }
+        }
+        return str.substring(0, 1).toUpperCase() + str.substring(1, str.length).toLowerCase();
+    });
+    return array.join(" ");    
+}
+
+export const validateAuthor = (str: string): string => {
+    str = validateString(str, "author");
+    return normalizeName(str, true);
+}
+
+export const validateCardTitle = (str: string): string => {
+    str = validateString(str, "cardTitle");
+    return normalizeName(str, false); 
+}
+
+export const validateDate = (date: string): CustomDate => {
     date = validateString(date, "date");
     const parsedDate: number = Date.parse(date);
     if (isNaN(parsedDate)) {
@@ -36,5 +68,12 @@ export const validateDate = (date: string): string => {
     if (parsedDate > TODAY.getTime()) {
         throw new RangeError(`Attempting to post something in the future: ${date}`);
     }
-    return parseDate(parsedDate);
+    return new CustomDate(parsedDate, parseDate(parsedDate));
+}
+
+export const sortPostInfos = (arr: PostInfo[]): PostInfo[] => {
+    arr.sort((a: PostInfo, b: PostInfo) => {
+        return b.unixTime - a.unixTime;
+    })
+    return arr;
 }

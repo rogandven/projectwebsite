@@ -1,5 +1,6 @@
 ---
-import { DEFAULT_LINK, RETURN_ICON_NAME } from "../../constants/DefaultValueConstants.ts";
+import { DEFAULT_LINK } from "../../constants/DefaultValueConstants.ts";
+import { RETURN_ICON_NAME } from "../../constants/IconConstants.ts";
 import ButtonBase from "./ButtonBase.astro";
 
 interface Props {
@@ -14,6 +15,6 @@ const {
     iconName={RETURN_ICON_NAME} 
     destination={buttonUrl}
     text={"Volver"}
-    color={"secondary"}
+    color={"accent"}
     classes={""}
 />

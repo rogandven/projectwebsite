@@ -1,33 +1,36 @@
 ---
-import { HEADER_FOOTER_CLASS } from "../../constants/TailwindConstants.ts";
-import { DEFAULT_APPLICATION_NAME, DEFAULT_ICON_NAME, CURRENT_YEAR } from "../../constants/DefaultValueConstants.ts";
-import FooterLink from "./FooterLink.astro";
+import { DARKER_TEXT_FOOTER, HEADER_FOOTER_CLASS } from "../../constants/TailwindConstants.ts";
+import { DEFAULT_APPLICATION_NAME, CURRENT_YEAR } from "../../constants/DefaultValueConstants.ts";
+import { APP_ICON_NAME } from "../../constants/IconConstants.ts";
 import { Icon } from "astro-icon/components";
+import { getTrueHomeURL } from "../../utils/GeneralUtils";
 ---
 
 <footer class={"footer sm:footer-horizontal " + HEADER_FOOTER_CLASS + " p-10"}>
   <aside>
-    <Icon name={DEFAULT_ICON_NAME} class="text-5xl" />
+    <a href={getTrueHomeURL(Astro)}><Icon name={APP_ICON_NAME} class="text-5xl" /></a>
     <p>
-      {DEFAULT_APPLICATION_NAME}
+      <span class="font-semibold">{DEFAULT_APPLICATION_NAME}</span>
       <br />
-      Copyright &copy; <span id="copyright">{CURRENT_YEAR}</span>. Todos los derechos reservados.
+      <span class="opacity-60">
+        Copyright &copy; <span id="copyright">{CURRENT_YEAR}</span>. Todos los derechos reservados.
+      </span>
     </p>
   </aside>
   <nav>
-    <h6 class="footer-title">Redes Sociales</h6>
+    <h6 class=`footer-title ${DARKER_TEXT_FOOTER}`>Redes Sociales</h6>
     <div class="grid grid-flow-col gap-4">
-      <FooterLink></FooterLink>
-      <FooterLink></FooterLink>
-      <FooterLink></FooterLink>
+      <slot />
     </div>
   </nav>
 </footer>
 
 <script>
   import { getYear } from "../../utils/GetYear.ts";
-
-  if (document && (typeof(document) === "object")) {
-    document.querySelector("#copyright")!.textContent = getYear(new Date())  
-  }
+  
+  try {
+    if (document && (typeof(document) === "object")) {
+      document.querySelector("#copyright")!.textContent = getYear(new Date())  
+    }
+  } catch (error) {}
 </script>

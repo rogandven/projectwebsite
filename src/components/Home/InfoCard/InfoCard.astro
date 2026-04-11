@@ -1,7 +1,8 @@
 ---
-import { DEFAULT_TITLE, DEFAULT_DESCRIPTION, DEFAULT_ICON_NAME } from '../../../constants/DefaultValueConstants.ts';
+import { DEFAULT_TITLE, DEFAULT_DESCRIPTION } from '../../../constants/DefaultValueConstants.ts';
 import { DEFAULT_MARGIN } from '../../../constants/TailwindConstants.ts';
 import { Icon } from 'astro-icon/components';
+import { DEFAULT_ICON_NAME } from '../../../constants/IconConstants.ts';
 
 interface Props {
     iconName?: string;
@@ -18,7 +19,7 @@ const {
 
 <div class={"card card-border bg-base-200 w-96 " + DEFAULT_MARGIN}>
     <div class="card-body">
-        <h2 class="card-title"><Icon name={iconName} />{cardTitle}</h2>
+        <h2 class="card-title text-primary"><Icon name={iconName} />{cardTitle}</h2>
         <p>{description}</p>
     </div>
 </div>

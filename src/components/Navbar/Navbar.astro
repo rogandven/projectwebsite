@@ -1,9 +1,22 @@
 ---
+import { BLOG_ADDRESS, BLOG_TEXT, FEATURES_TEXT } from "../../constants/DefaultValueConstants.ts";
+import { getFeaturesURL } from "../../utils/GeneralUtils.ts";
 import NavbarBody from "./NavbarBody.astro";
 import NavbarLink from "./NavbarLink.astro";
+import { APP_FEATURES_ICON_NAME, BLOG_ICON_NAME } from "../../constants/IconConstants.ts";
+import LinkInfo from "../../classes/LinkInfo.ts";
+
+interface Props {
+    links?: LinkInfo[];
+}
+
+const { 
+    links = [],
+} = Astro.props;
 ---
 
 <NavbarBody>
-    <NavbarLink />
-    <NavbarLink name="Blog" iconName="mdi:book" destination="/blog"></NavbarLink>
+    {links.map((link) => 
+        <NavbarLink name={link.text} iconName={link.iconName} destination={link.destination} />
+    )}
 </NavbarBody>

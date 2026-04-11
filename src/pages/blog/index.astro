@@ -1,22 +1,31 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getPosts } from '../../utils/GeneralUtils.ts';
+import { getPosts, getTrueHomeURL } from '../../utils/GeneralUtils.ts';
 import PostInfo from '../../classes/PostInfo.ts';
 import Post from '../../components/Blog/Post.astro';
 import BlogBase from '../../components/Blog/BlogBase.astro';
-const posts: PostInfo[] = getPosts();
+import GoBackButton from '../../components/Buttons/GoBackButton.astro';
+import { sortPostInfos } from '../../utils/PostUtils.ts';
+const posts: PostInfo[] = sortPostInfos(getPosts());
+const HOME_URL: string = getTrueHomeURL(Astro);
 ---
 
 <Layout title="Blog">
     <BlogBase>
         <ul class="list">
+            <li class="list-row">
+                <GoBackButton buttonUrl={HOME_URL}>      
+            </li>              
             {posts.map((post: PostInfo) => {
                 return (
                 <li class="list-row">
                     <Post post={post}></Post>      
                 </li>                
                 )
-            })}        
+            })}
+            <li class="list-row">
+                <GoBackButton buttonUrl={HOME_URL}>      
+            </li>  
         </ul>
     </BlogBase>
 </Layout>

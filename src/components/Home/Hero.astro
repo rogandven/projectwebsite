@@ -1,36 +1,46 @@
 ---
-import { DEFAULT_LINK, DEFAULT_TITLE, DEFAULT_DESCRIPTION, DEFAULT_BUTTON_LABEL, DEFAULT_IMAGE_LINK, DEFAULT_ICON_NAME } from '../../constants/DefaultValueConstants.ts';
-import { HERO_CLASS } from '../../constants/TailwindConstants.ts';
+import type ButtonInfo from '../../classes/ButtonInfo.ts';
+import { DEFAULT_TITLE, DEFAULT_DESCRIPTION, HOME_ID } from '../../constants/DefaultValueConstants.ts';
+import { DEFAULT_BOTTOMMARGIN, HERO_TEXT_CLASS, HERO_TITLE_CLASS } from '../../constants/TailwindConstants.ts';
+import { DEFAULT_HEROBUTTONMARGIN, HERO_CLASS } from '../../constants/TailwindConstants.ts';
+import { getCollegeImageURL } from '../../utils/ImageUtils.ts';
 import ButtonBase from '../Buttons/ButtonBase.astro';
-import GetStartedButton from '../Buttons/GetStartedButton.astro';
 
 interface Props {
     imageUrl?: string;
     title?: string;
     description?: string;
-    buttonText?: string;
-    buttonUrl?: string;
+    buttons?: ButtonInfo[];
 }
 
 const { 
-    imageUrl = DEFAULT_IMAGE_LINK,
+    imageUrl = getCollegeImageURL(Astro),
     title = DEFAULT_TITLE,
     description = DEFAULT_DESCRIPTION,
-    buttonText = DEFAULT_BUTTON_LABEL,
-    buttonUrl = DEFAULT_LINK,
+    buttons = [],
 } = Astro.props;
 ---
 
 <div
+  id={HOME_ID}
   class={"hero " + HERO_CLASS}
   style={"background-image: url(" + imageUrl + ");"}
 >
   <div class="hero-overlay"></div>
-  <div class="hero-content text-neutral-content text-center">
+  <div class={`${HERO_TEXT_CLASS} text-neutral-content`}>
     <div class="w-full">
-      <h1 class="mb-5 text-5xl font-bold">{title}</h1>
-      <p class="mb-5">{description}</p>
-      <GetStartedButton buttonText={buttonText} buttonUrl={buttonUrl}>
+      <h1 class={`${DEFAULT_BOTTOMMARGIN} ${HERO_TITLE_CLASS} text-info`}>{title}</h1>
+      <p class={`${DEFAULT_BOTTOMMARGIN}`}>{description}</p>
+      {buttons.map((button) => 
+      <ButtonBase 
+        iconName={button.iconName}
+        destination={button.destination}
+        color={button.color}
+        text={button.text}
+        classes={button.classes + DEFAULT_HEROBUTTONMARGIN}
+        isPostButton={button.isPostButton}
+      />
+      )}
     </div>
   </div>
 </div>

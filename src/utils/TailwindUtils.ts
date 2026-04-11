@@ -1,23 +1,21 @@
-import { DEFAULT_BUTTON_COLOR, DEFAULT_BUTTON_COLOR_ARG } from "../constants/TailwindConstants";
+import { COLOR_ACCENT, COLOR_ARRAY, COLOR_ERROR, COLOR_INFO, COLOR_PRIMARY, COLOR_SECONDARY, COLOR_SUCCESS, COLOR_WARNING } from "../constants/DefaultValueConstants.ts";
+import { DEFAULT_BUTTON_COLOR, DEFAULT_BUTTON_COLOR_ARG } from "../constants/TailwindConstants.ts";
 
 export const buttonColorParser = (color: string) : string => {
     color = color.toLocaleLowerCase().trim();
-    if (!color || color.length <= 0 || color === DEFAULT_BUTTON_COLOR_ARG) {
-        return DEFAULT_BUTTON_COLOR;
-    } else if (color === "primary") {
+    if (color === COLOR_PRIMARY) {
         return "btn-primary";
-    } else if (color === "secondary") {
+    } else if (color === COLOR_SECONDARY) {
         return "btn-secondary";
-    } else if (color === "accent") {
+    } else if (color === COLOR_ACCENT) {
         return "btn-accent";
-    } else if (color === "info") {
+    } else if (color === COLOR_INFO) {
         return "btn-info";
-    } else if (color === "success") {
+    } else if (color === COLOR_SUCCESS) {
         return "btn-success";
-    } else if (color === "warning") {
+    } else if (color === COLOR_WARNING) {
         return "btn-warning";
-    } else if (color === "error") {
+    } else if (color === COLOR_ERROR) {
         return "btn-error";
-    }
-    return DEFAULT_BUTTON_COLOR;
+    } else return DEFAULT_BUTTON_COLOR;
 }

@@ -2,8 +2,10 @@
 import "../assets/app.css";
 import Navbar from "../components/Navbar/Navbar.astro";
 import Footer from '../components/Footer/Footer.astro';
-import { DEFAULT_APPLICATION_NAME } from "../constants/DefaultValueConstants.ts";
-import { getAbsoluteURL, titleGenerator } from "../utils/GeneralUtils.ts";
+import { BLOG_TEXT, DEFAULT_APPLICATION_NAME, FEATURES_TEXT, BLOG_ADDRESS } from "../constants/DefaultValueConstants.ts";
+import { getAbsoluteURL, titleGenerator, getFeaturesURL, sortLinkInfos } from "../utils/GeneralUtils.ts";
+import LinkInfo from "../classes/LinkInfo";
+import { APP_FEATURES_ICON_NAME, BLOG_ICON_NAME } from "../constants/IconConstants.ts";
 
 interface Props {
 	title?: string
@@ -13,6 +15,10 @@ const {
 	title = DEFAULT_APPLICATION_NAME
 } = Astro.props;
 
+const links: LinkInfo[] = sortLinkInfos([
+	new LinkInfo(BLOG_ICON_NAME, BLOG_ADDRESS, BLOG_TEXT),
+	new LinkInfo(APP_FEATURES_ICON_NAME, getFeaturesURL(Astro), FEATURES_TEXT),
+]);
 ---
 
 <!doctype html>
@@ -26,7 +32,7 @@ const {
 		<title>{titleGenerator(title)}</title>
 	</head>
 	<body>
-		<Navbar />
+		<Navbar links={links}/>
 		<div class="flex flex-col min-h-screen justify-between">
 			<slot />
 			<Footer />

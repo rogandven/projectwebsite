@@ -1,6 +1,7 @@
-import type { AstroComponentFactory } from "astro/runtime/server/index.js";
+import CardInfo from "../classes/CardInfo.ts";
+import type LinkInfo from "../classes/LinkInfo.ts";
 import PostInfo from "../classes/PostInfo.ts";
-import { DEFAULT_APPLICATION_NAME, DEFAULT_LOCALE, DEFAULT_TIMEZONE, DEFAULT_DATE_FORM, TODAY, DEFAULT_PARTIAL_URL, HOME_DIRECTORY } from "../constants/DefaultValueConstants.ts"
+import { DEFAULT_APPLICATION_NAME, DEFAULT_LOCALE, DEFAULT_TIMEZONE, DEFAULT_DATE_FORM, TODAY, DEFAULT_PARTIAL_URL, HOME_DIRECTORY, FEATURES_ID, HOME_ID, COLLEGE_IMAGE_URL } from "../constants/DefaultValueConstants.ts"
 import { INCLUDE_DAY, USE_LONG_DATE_FORM } from "../constants/Options.ts";
 import { MAX_PREVIEW_LENGTH } from "../constants/TailwindConstants.ts";
 
@@ -98,14 +99,11 @@ export const getGoBackURL = (astro: any, amount: number): string => {
     amount = Math.abs(Number(amount));
     const parsedCurrentUrl: string[] = currentUrl.split("/");
     for (let i:number = 0; i < amount; i++) {
-        // console.log("pop!\n");
-        // console.log(parsedCurrentUrl);
         parsedCurrentUrl.pop();
         if (parsedCurrentUrl.length <= 0) {
             return DEFAULT_PARTIAL_URL;
         }
     }
-    // console.log(`\nGO BACK URL: ${String(parsedCurrentUrl.join("/") || DEFAULT_PARTIAL_URL)}\n`);
     return parsedCurrentUrl.join("/") || DEFAULT_PARTIAL_URL;
 }
 
@@ -123,4 +121,26 @@ export const getAbsoluteURL = (astro: any, path: string, isPostURL: boolean = fa
         return path;
     }
     return getHomeURL(astro) + path;
+}
+
+export const getFeaturesURL = (astro: any): string => {
+    return getHomeURL(astro) + `#${FEATURES_ID}`;
+}
+
+export const getTrueHomeURL = (astro: any): string => {
+    return getHomeURL(astro) + `#${HOME_ID}`;
+}
+
+export const sortCardInfos = (arr: CardInfo[]): CardInfo[] => {
+    arr.sort((a: CardInfo, b: CardInfo) => {
+        return a.cardTitle.localeCompare(b.cardTitle);
+    })
+    return arr;
+}
+
+export const sortLinkInfos = (arr: LinkInfo[]): LinkInfo[] => {
+    arr.sort((a: LinkInfo, b: LinkInfo) => {
+        return a.text.localeCompare(b.text);
+    })
+    return arr;
 }
