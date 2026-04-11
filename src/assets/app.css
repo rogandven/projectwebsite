@@ -1,3 +1,4 @@
+@import url(./oswald-font.css);
 @import "tailwindcss";
 @plugin "daisyui" {
   themes: ubb --default;
@@ -38,3 +39,6 @@
 };
 @plugin '@tailwindcss/typography';
 
+* {
+  font-family: Oswald, sans-serif;
+}
