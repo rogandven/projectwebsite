@@ -1,0 +1,17 @@
+---
+import Picture from "astro/components/Picture.astro";
+import Logo from "../../../public/images/pctppp.png";
+---
+
+<div class="ml-10 mt-10 items-center justify-center align-middle w-screen h-screen">
+    <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
+        <Picture src={Logo} format="avif" alt="Logo" />
+        <label class="label">Correo</label>
+        <input type="email" class="input" placeholder="Correo" />
+
+        <label class="label">Constraseña</label>
+        <input type="password" class="input" placeholder="Constraseña" />
+
+        <button class="btn btn-neutral mt-4">Ingresar</button>
+    </fieldset>
+</div>
