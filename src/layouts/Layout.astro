@@ -1,41 +1,27 @@
 ---
 import "../assets/app.css";
-import Navbar from "../components/Navbar/Navbar.astro";
-import Footer from '../components/Footer/Footer.astro';
-import { BLOG_TEXT, DEFAULT_APPLICATION_NAME, FEATURES_TEXT, BLOG_ADDRESS } from "../constants/DefaultValueConstants.ts";
-import { getAbsoluteURL, titleGenerator, getFeaturesURL, sortLinkInfos } from "../utils/GeneralUtils.ts";
-import LinkInfo from "../classes/LinkInfo";
-import { APP_FEATURES_ICON_NAME, BLOG_ICON_NAME } from "../constants/IconConstants.ts";
-
-interface Props {
-	title?: string
-}
-
-const { 
-	title = DEFAULT_APPLICATION_NAME
-} = Astro.props;
-
-const links: LinkInfo[] = sortLinkInfos([
-	new LinkInfo(BLOG_ICON_NAME, BLOG_ADDRESS, BLOG_TEXT),
-	new LinkInfo(APP_FEATURES_ICON_NAME, getFeaturesURL(Astro), FEATURES_TEXT),
-]);
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
+		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href={getAbsoluteURL(Astro, "/favicon.svg")} />
-		<link rel="icon" href={getAbsoluteURL(Astro, "/favicon.ico")} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{titleGenerator(title)}</title>
+		<title>Astro Basics</title>
 	</head>
 	<body>
-		<Navbar links={links}/>
-		<div class="flex flex-col min-h-screen justify-between">
-			<slot />
-			<Footer />
-		</div>
+		<slot />
 	</body>
 </html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+</style>
