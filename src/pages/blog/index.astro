@@ -14,7 +14,7 @@ const HOME_URL: string = getTrueHomeURL(Astro);
     <BlogBase>
         <ul class="list">
             <li class="list-row">
-                <GoBackButton buttonUrl={HOME_URL}>      
+                <GoBackButton buttonUrl={HOME_URL} />      
             </li>              
             {posts.map((post: PostInfo) => {
                 return (
@@ -24,7 +24,7 @@ const HOME_URL: string = getTrueHomeURL(Astro);
                 )
             })}
             <li class="list-row">
-                <GoBackButton buttonUrl={HOME_URL}>      
+                <GoBackButton buttonUrl={HOME_URL} />      
             </li>  
         </ul>
     </BlogBase>
