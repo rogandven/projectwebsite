@@ -1,5 +1,7 @@
 ---
 import "../assets/app.css";
+import DUNavbar from "../components/ui/DUNavbar.astro";
+import DUFooter from "../components/ui/DUFooter.astro";
 ---
 
 <!doctype html>
@@ -13,7 +15,9 @@ import "../assets/app.css";
 		<title>Astro Basics</title>
 	</head>
 	<body>
+		<DUNavbar />
 		<slot />
+		<DUFooter />
 	</body>
 </html>
 

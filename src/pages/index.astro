@@ -1,6 +1,14 @@
 ---
+import DUHero from '../components/ui/DUHero.astro';
+import DUTitleSubtitle from '../components/ui/DUTitleSubtitle.astro';
+import DUCard from "../components/ui/DUCard.astro";
 import Layout from '../layouts/Layout.astro';
+
+import { Box } from "astro-feather-icons";
 ---
 
 <Layout>
+    <DUHero />
+    <DUTitleSubtitle />
+    <DUCard Icon={Box} title="minecraft" description="jajajajaja" />
 </Layout>

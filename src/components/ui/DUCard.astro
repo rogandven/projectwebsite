@@ -1,0 +1,23 @@
+---
+import { Box } from "astro-feather-icons";
+
+interface Props {
+  Icon: Function,
+  title: string,
+  description: string,
+}
+
+const { 
+    Icon = Box,
+    title = "",
+    description = "",
+} = Astro.props;
+---
+<div class="card w-96 bg-base-200 card-md shadow-sm">
+  <div class="card-body">
+    <div class="flex flex-row items-center text-primary">
+      <Icon class="h-5 mr-1" /><h2 class="card-title">{title}</h2>
+    </div>
+    <p>{description}</p>
+  </div>
+</div>
