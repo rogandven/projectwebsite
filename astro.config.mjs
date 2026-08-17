@@ -7,5 +7,6 @@ export default defineConfig({
   integrations: [],
   vite: {
     plugins: [tailwindcss()],
-  },  
+  },
+  site: 'https://rogandven.github.io/projectwebsite',  
 });
