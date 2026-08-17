@@ -4,18 +4,34 @@ import DUTitleSubtitle from '../components/ui/DUTitleSubtitle.astro';
 import DUCard from "../components/ui/DUCard.astro";
 import Layout from '../layouts/Layout.astro';
 import DATA from "../data/DATA";
+import College from "../images/college.jpg";
+
 ---
 
-<Layout>
-    <DUHero buttonLogo={DATA.links.at(2)?.Logo || undefined} 
-        buttonText={"Ver " + DATA.links.at(2)?.name || ""}
-        buttonDestination={DATA.links.at(2)?.address || "."}
-        title={DATA.HERO_TITLE} 
-        subtitle={DATA.HERO_SUBTITLE}
-    />
-    <DUTitleSubtitle title={DATA.FEATURES_TITLE} subtitle={DATA.FEATURES_SUBTITLE} />
-    
-    {DATA.cards.map((card) => {
-        return <DUCard Icon={card.Logo} title={card.title} description={card.description} />
-    })}
+<Layout navbarLinks={DATA.links}>
+    <div id={DATA.links.at(1)?.sluggifiedName}>
+        <DUHero 
+            imageSource={College}
+            buttonLogo={DATA.links.at(2)?.Logo || undefined} 
+            buttonText={"Ver " + DATA.links.at(2)?.name || ""}
+            buttonDestination={DATA.links.at(2)?.address || "."}
+            title={DATA.HERO_TITLE} 
+            subtitle={DATA.HERO_SUBTITLE}
+        />
+    </div>
+
+    <div id={DATA.links.at(2)?.sluggifiedName}>
+        <div class="w-full flex flex-col items-center justify-center">
+            <div class="hero-content text-center w-full">
+                <div class="w-full">
+                <DUTitleSubtitle title={DATA.FEATURES_TITLE} subtitle={DATA.FEATURES_SUBTITLE} />
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-row flex-wrap justify-center -mt-6 mb-5">
+            {DATA.cards.map((card) => {
+                return <DUCard Icon={card.Logo} title={card.title} description={card.description} />
+            })}
+        </div>
+    </div>
 </Layout>

@@ -6,18 +6,20 @@ interface Props {
   links: LinkInfo[],
   projectName: string,
   ProjectLogo: Function,
+  defaultPage: string,
 }
 
 const { 
     links,
     projectName,
     ProjectLogo,
+    defaultPage,
 } = Astro.props;
 
 let Logo: Function = () => {};
 ---
 
-<div class="navbar bg-primary shadow-sm">
+<div class="navbar bg-primary shadow-sm w-full">
   <div class="navbar-start">
     <div class="dropdown">
       <div tabindex="0" role="button" class="btn btn-ghost btn-circle btn-primary text-primary-content">
@@ -43,7 +45,7 @@ let Logo: Function = () => {};
     </div>
   </div>
   <div class="navbar-center">
-    <a class="btn btn-primary btn-ghost text-xl text-primary-content">
+    <a class="btn btn-primary btn-ghost text-xl text-primary-content" href={defaultPage} target="_self">
       <div class="flex flex-row items-center">
         <ProjectLogo class="mr-1" />
         <span>{projectName}</span>

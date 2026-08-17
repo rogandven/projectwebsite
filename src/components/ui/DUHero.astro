@@ -7,6 +7,7 @@ interface Props {
     subtitle: string,
     buttonText: string,
     buttonDestination: string,
+    imageSource: ImageMetadata,
 }
 
 const { 
@@ -15,17 +16,19 @@ const {
     subtitle,
     buttonText,
     buttonDestination,
+    imageSource,
 } = Astro.props;
 
 const ButtonLogo = buttonLogo;
+const imageSourceCasted: ImageMetadata = imageSource;
 ---
 <div
-  class="hero"
-  style="background-image: url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp);"
+  class="hero w-full"
+  style={`background-image: url(${imageSourceCasted.src});`}
 >
   <div class="hero-overlay"></div>
-  <div class="hero-content text-neutral-content text-center">
-    <div class="max-w-md">
+  <div class="hero-content w-5/6 text-neutral-content text-center">
+    <div class="w-full">
       <DUTitleSubtitle title={title} subtitle={subtitle} />
       <a href={buttonDestination}>
         <button class="btn btn-primary">

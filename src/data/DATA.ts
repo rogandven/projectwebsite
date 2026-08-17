@@ -11,6 +11,7 @@ const LINKS = [
 
 export const DATA = {
     projectName: "Proyecto SCM",
+    defaultPage: "projectwebsite",
     defaultIcon: ShoppingBag,
     links: LINKS,
     socials: [
