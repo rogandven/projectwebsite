@@ -2,6 +2,7 @@
 import "../assets/app.css";
 import DUNavbar from "../components/ui/DUNavbar.astro";
 import DUFooter from "../components/ui/DUFooter.astro";
+import DATA from "../data/DATA";
 ---
 
 <!doctype html>
@@ -12,12 +13,12 @@ import DUFooter from "../components/ui/DUFooter.astro";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{DATA.projectName}</title>
 	</head>
 	<body>
-		<DUNavbar />
+		<DUNavbar links={DATA.links} projectName={DATA.projectName} ProjectLogo={DATA.defaultIcon} />
 		<slot />
-		<DUFooter />
+		<DUFooter projectName={DATA.projectName} Logo={DATA.defaultIcon} socials={DATA.socials} />
 	</body>
 </html>
 

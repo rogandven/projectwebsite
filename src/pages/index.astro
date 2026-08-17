@@ -3,12 +3,19 @@ import DUHero from '../components/ui/DUHero.astro';
 import DUTitleSubtitle from '../components/ui/DUTitleSubtitle.astro';
 import DUCard from "../components/ui/DUCard.astro";
 import Layout from '../layouts/Layout.astro';
-
-import { Box } from "astro-feather-icons2";
+import DATA from "../data/DATA";
 ---
 
 <Layout>
-    <DUHero />
-    <DUTitleSubtitle />
-    <DUCard Icon={Box} title="minecraft" description="jajajajaja" />
+    <DUHero buttonLogo={DATA.links.at(2)?.Logo || undefined} 
+        buttonText={"Ver " + DATA.links.at(2)?.name || ""}
+        buttonDestination={DATA.links.at(2)?.address || "."}
+        title={DATA.HERO_TITLE} 
+        subtitle={DATA.HERO_SUBTITLE}
+    />
+    <DUTitleSubtitle title={DATA.FEATURES_TITLE} subtitle={DATA.FEATURES_SUBTITLE} />
+    
+    {DATA.cards.map((card) => {
+        return <DUCard Icon={card.Logo} title={card.title} description={card.description} />
+    })}
 </Layout>

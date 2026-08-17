@@ -2,14 +2,17 @@ import { List, ShoppingBag, CornerDownLeft, Home, User, Book, Mail, Layout, Shie
 import LinkInfo from "../classes/LinkInfo";
 import { Github, Php } from "simple-icons-astro";
 import CardInfo from "../classes/CardInfo";
+
+const LINKS = [
+    LinkInfo.ExternalLink("https://rogandven.github.io", CornerDownLeft, "Volver"),
+    LinkInfo.InternalLink(Home, "Inicio"),
+    LinkInfo.InternalLink(List, "Características"),
+];
+
 export const DATA = {
     projectName: "Proyecto SCM",
     defaultIcon: ShoppingBag,
-    links: {
-        _0_GO_BACK_HOME: LinkInfo.ExternalLink("https://rogandven.github.io", CornerDownLeft, "Volver"),
-        _1_START: LinkInfo.InternalLink(Home, "Inicio"),
-        _2_FEATURES: LinkInfo.InternalLink(List, "Características"),
-    },
+    links: LINKS,
     socials: [
         LinkInfo.ExternalLink("https://github.com/rogandven/projectwebsite", Github, "GitHub"),
     ].toSorted((a, b) => {
