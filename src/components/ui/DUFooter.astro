@@ -1,0 +1,44 @@
+---
+import LinkInfo from '../../classes/LinkInfo';
+import DUTooltip from './DUTooltip.astro';
+
+interface Props {
+    Logo?: Function | undefined,
+    projectName: string,
+    socials: LinkInfo[],
+}
+
+const { 
+    Logo = undefined,
+    projectName,
+    socials,
+} = Astro.props;
+
+let SocialLogo: Function = () => {};
+---
+
+<footer class="footer sm:footer-horizontal bg-primary text-primary-content p-10">
+  <aside>
+    {Logo && <Logo width={50} height={50} />}
+    <p>
+      {projectName}
+    </p>
+  </aside>
+  <nav class="w-full">
+    <h6 class="footer-title opacity-100">Redes Sociales</h6>
+    <div class="grid grid-flow-col gap-4">
+      {socials.map((social: LinkInfo) => {
+        SocialLogo = social.Logo;
+        return (
+          <a href={social.address} target="_blank">
+            <DUTooltip tooltipText={social.name}>
+              <button class="btn rounded-full text-xl btn-sm btn-square overflow-visible btn-ghost btn-primary text-primary-content">
+                <SocialLogo width={24} height={24} />
+              </button>
+            </DUTooltip>
+          </a>
+        );        
+      })}
+    </div>
+  </nav>
+</footer>

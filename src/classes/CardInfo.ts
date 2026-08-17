@@ -1,43 +1,32 @@
-import { DEFAULT_DESCRIPTION, DEFAULT_TITLE } from "../constants/DefaultValueConstants.ts";
-import { DEFAULT_ICON_NAME } from "../constants/IconConstants.ts";
-import { validateIconName } from "../utils/ButtonUtils.ts";
-import { validateCardTitle, validateString } from "../utils/PostUtils.ts";
+export default class CardInfo {
+    private _logo: Function = () => {};
+    private _title: string = "";
+    private _description: string = "";
 
-export class CardInfo {
-    private _iconName?: string = DEFAULT_ICON_NAME;
-    private _cardTitle?: string = DEFAULT_TITLE;
-    private _description?: string = DEFAULT_DESCRIPTION;
-
-    constructor(
-        iconName: string = DEFAULT_ICON_NAME, 
-        cardTitle: string = DEFAULT_TITLE, 
-        description: string = DEFAULT_DESCRIPTION, 
-    ) {
-        this.iconName = iconName;
-        this.cardTitle = cardTitle;
-        this.description = description;
+    get Logo(): Function {
+        return this._logo;
+    }
+    private set Logo(Logo: Function) {
+        this._logo = Logo;
     }
 
-    get iconName(): string {
-        return String(this._iconName);
+    get title(): string {
+        return this._title;
     }
-    set iconName(iconName: string) {
-        this._iconName = validateIconName(iconName);
+    private set title(title: string) {
+        this._title = title;
     }
-
-    get cardTitle(): string {
-        return String(this._cardTitle);
-    }
-    set cardTitle(cardTitle: string) {
-        this._cardTitle = validateCardTitle(cardTitle);
-    }    
 
     get description(): string {
-        return String(this._description);
+        return this._description;
     }
-    set description(description: string) {
-        this._description = validateString(description, "description");
-    }     
-}
+    private set description(description: string) {
+        this._description = description;
+    }
 
-export default CardInfo;
+    constructor(Logo: Function, title: string, description: string) {
+        this.Logo = Logo;
+        this.title = title;
+        this.description = description;
+    }
+}

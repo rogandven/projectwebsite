@@ -2,12 +2,11 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from "@tailwindcss/vite";
 
-import icon from "astro-icon";
-
+// https://astro.build/config
 export default defineConfig({
+  integrations: [],
   vite: {
-      plugins: [tailwindcss()],
+    plugins: [tailwindcss()],
   },
-
-  integrations: [icon()],
+  site: 'https://rogandven.github.io/projectwebsite',  
 });

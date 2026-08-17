@@ -1,0 +1,60 @@
+---
+import { AlignJustify } from "astro-feather-icons2";
+import LinkInfo from "../../classes/LinkInfo";
+import DUTooltip from "./DUTooltip.astro";
+
+interface Props {
+  links: LinkInfo[],
+  projectName: string,
+  ProjectLogo: Function,
+  defaultPage: string,
+}
+
+const { 
+    links,
+    projectName,
+    ProjectLogo,
+    defaultPage,
+} = Astro.props;
+
+let Logo: Function = () => {};
+---
+
+<div class="navbar bg-primary shadow-sm w-full">
+  <div class="navbar-start">
+    <div class="dropdown">
+      <DUTooltip tooltipText="Navegar" bottom={true}>
+      <div tabindex="0" role="button" class="btn btn-ghost btn-circle btn-primary text-primary-content">
+        <AlignJustify class="h-5 w-5" />
+      </div>
+      </DUTooltip>
+      <ul
+        tabindex="-1"
+        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+        {links.map((link: LinkInfo) => {
+          Logo = link.Logo;
+          return (
+          <li class="mb-0.5 mt-0.5">
+            <a href={link.address} target="_self">
+            <div class="flex flex-row items-center">
+              <Logo class="h-3.5 mr-1" />
+              <span>{link.name}</span>
+            </div>
+            </a>
+          </li>
+          )
+        })}
+      </ul>
+    </div>
+  </div>
+  <div class="navbar-center">
+    <a class="btn btn-primary btn-ghost text-xl text-primary-content" href={defaultPage} target="_self">
+      <div class="flex flex-row items-center">
+        <ProjectLogo class="mr-1" />
+        <span>{projectName}</span>
+      </div>
+    </a>
+  </div>
+  <div class="navbar-end">
+  </div>
+</div>

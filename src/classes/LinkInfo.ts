@@ -1,43 +1,57 @@
-import { DEFAULT_APPLICATION_NAME, DEFAULT_LINK } from "../constants/DefaultValueConstants.ts";
-import { DEFAULT_ICON_NAME } from "../constants/IconConstants.ts";
-import { validateIconName, validateText } from "../utils/ButtonUtils.ts";
-import { validateURL } from "../utils/PostUtils.ts";
+import { slugify } from "../utils/general.utils";
 
-export class LinkInfo {
-    private _iconName?: string = DEFAULT_ICON_NAME;
-    private _destination?: string = DEFAULT_LINK;
-    private _text?: string = DEFAULT_APPLICATION_NAME;
-    
-    constructor(
-        iconName: string = DEFAULT_ICON_NAME, 
-        destination: string = DEFAULT_LINK, 
-        text: string = DEFAULT_APPLICATION_NAME, 
-    ) {
-        this.iconName = iconName;
-        this.destination = destination;
-        this.text = text;
+export default class LinkInfo {
+    private _address: string = "";
+    private _logo: Function = () => {};
+    private _name: string = "";
+    private _sluggifiedName: string = "";
+    private _internal: boolean = false;
+
+    get address(): string {
+        return this._address;
+    }
+    private set address(address: string) {
+        this._address = address;
     }
 
-    get iconName(): string {
-        return String(this._iconName);
+    get Logo(): Function {
+        return this._logo;
+    }   
+    private set Logo(logo: Function) {
+        this._logo = logo;
     }
-    set iconName(iconName: string) {
-        this._iconName = validateIconName(iconName);
-    } 
-    
-    get destination(): string {
-        return String(this._destination);
-    }
-    set destination(destination: string) {
-        this._destination = validateURL(destination);
-    } 
 
-    get text(): string {
-        return String(this._text);
+    get name(): string {
+        return this._name;
     }
-    set text(text: string) {
-        this._text = validateText(text);
+    private set name(name: string) {
+        this._name = name;
+        this._sluggifiedName = slugify(this._name);
     }
-};
 
-export default LinkInfo;
+    get sluggifiedName(): string {
+        return this._sluggifiedName;
+    }
+
+    private set internal(internal: boolean) {
+        this._internal = internal;
+    }
+    get internal() {
+        return this._internal;
+    }
+
+
+    private constructor(address: string | null, Logo: Function, name: string, internal: boolean) {
+        this.Logo = Logo;
+        this.name = name;
+        this.internal = internal;
+        this.address = internal ? `/#${this.sluggifiedName}` : String(address);
+    }
+
+    public static InternalLink(Logo: Function, name: string): LinkInfo {
+        return new this(null, Logo, name, true);
+    }
+    public static ExternalLink(address: string, Logo: Function, name: string): LinkInfo {
+        return new this(address, Logo, name, false);
+    }      
+}
