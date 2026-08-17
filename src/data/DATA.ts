@@ -2,6 +2,7 @@ import { List, ShoppingBag, CornerDownLeft, Home, User, Book, Mail, Layout, Shie
 import LinkInfo from "../classes/LinkInfo";
 import { Github, Php } from "simple-icons-astro";
 import CardInfo from "../classes/CardInfo";
+import { DEFAULT_PAGE } from "../constants/URL.constants.ts";
 
 const LINKS = [
     LinkInfo.ExternalLink("https://rogandven.github.io", CornerDownLeft, "Volver"),
@@ -11,7 +12,7 @@ const LINKS = [
 
 export const DATA = {
     projectName: "Proyecto SCM",
-    defaultPage: "projectwebsite",
+    defaultPage: DEFAULT_PAGE,
     defaultIcon: ShoppingBag,
     links: LINKS,
     socials: [

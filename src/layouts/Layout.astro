@@ -4,6 +4,7 @@ import DUNavbar from "../components/ui/DUNavbar.astro";
 import DUFooter from "../components/ui/DUFooter.astro";
 import DATA from "../data/DATA";
 import LinkInfo from "../classes/LinkInfo";
+import { DEFAULT_PAGE } from "../constants/URL.constants";
 
 interface Props {
   navbarLinks: LinkInfo[],
@@ -26,7 +27,7 @@ const {
 	</head>
 	<body style={"display: grid; min-height: 100dvh; grid-template-rows: auto 1fr auto"}>
 		<header class="w-full">
-			<DUNavbar defaultPage={DATA.defaultPage} links={navbarLinks} projectName={DATA.projectName} ProjectLogo={DATA.defaultIcon} />
+			<DUNavbar defaultPage={DEFAULT_PAGE} links={navbarLinks} projectName={DATA.projectName} ProjectLogo={DATA.defaultIcon} />
 		</header>
 		<main class="w-full">
 			<slot />
