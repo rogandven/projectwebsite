@@ -1,3 +1,4 @@
+import DATA from "../data/DATA";
 import { slugify } from "../utils/general.utils";
 
 export default class LinkInfo {
@@ -45,7 +46,7 @@ export default class LinkInfo {
         this.Logo = Logo;
         this.name = name;
         this.internal = internal;
-        this.address = internal ? `/#${this.sluggifiedName}` : String(address);
+        this.address = internal ? `/${DATA.defaultPage}#${this.sluggifiedName}` : String(address);
     }
 
     public static InternalLink(Logo: Function, name: string): LinkInfo {
