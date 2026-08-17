@@ -1,4 +1,4 @@
-import { List, ShoppingBag, CornerDownLeft, Home, User, Book, Mail, Layout, Shield } from "astro-feather-icons2";
+import { List, ShoppingBag, CornerDownLeft, Home, User, Book, Mail, Layout, Shield } from "../components/icons/index.js";
 import LinkInfo from "../classes/LinkInfo";
 import { Github, Php } from "simple-icons-astro";
 import CardInfo from "../classes/CardInfo";
