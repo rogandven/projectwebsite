@@ -1,5 +1,6 @@
 ---
 import LinkInfo from '../../classes/LinkInfo';
+import DUTooltip from './DUTooltip.astro';
 
 interface Props {
     Logo?: Function | undefined,
@@ -30,9 +31,11 @@ let SocialLogo: Function = () => {};
         SocialLogo = social.Logo;
         return (
           <a href={social.address} target="_blank">
-            <button class="btn rounded-full text-xl btn-sm btn-square overflow-visible btn-ghost btn-primary text-primary-content">
-              <SocialLogo width={24} height={24} />
-            </button>
+            <DUTooltip tooltipText={social.name}>
+              <button class="btn rounded-full text-xl btn-sm btn-square overflow-visible btn-ghost btn-primary text-primary-content">
+                <SocialLogo width={24} height={24} />
+              </button>
+            </DUTooltip>
           </a>
         );        
       })}

@@ -1,0 +1,19 @@
+---
+interface Props {
+    tooltipText: string,
+    bottom?: boolean | undefined,
+    className?: string,
+}
+
+const { 
+    tooltipText,
+    bottom = false,
+    className = "",
+} = Astro.props;
+
+const _bottom: boolean = Boolean(bottom);
+---
+
+<div class=`tooltip ${className} ${_bottom ? "tooltip-bottom" : ""}` data-tip={tooltipText}>
+  <slot />
+</div>
