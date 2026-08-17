@@ -1,5 +1,5 @@
-import { DATA } from "../data/DATA";
-import { slugify } from "../utils/general.utils";
+import { DATA } from "../data/DATA.ts";
+import { slugify } from "../utils/general.utils.ts";
 
 export default class LinkInfo {
     private _address: string = "";
@@ -46,7 +46,7 @@ export default class LinkInfo {
         this.Logo = Logo;
         this.name = name;
         this.internal = internal;
-        this.address = internal ? `/${DATA.defaultPage || "projectwebsite"}#${this.sluggifiedName}` : String(address);
+        this.address = internal ? `/${DATA?.defaultPage || "projectwebsite"}#${this.sluggifiedName}` : String(address);
     }
 
     public static InternalLink(Logo: Function, name: string): LinkInfo {
